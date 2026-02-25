@@ -1,0 +1,39 @@
+.cta {
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.cta-inner {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.cta-text {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}

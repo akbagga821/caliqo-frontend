@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <img src="/caliqo-logo.png" alt="" width="24" height="24" />
+          <img src="/caliqo_logo.png" alt="" width="24" height="24" />
           <span>caliqo</span>
         </div>
         <nav className="footer-nav">

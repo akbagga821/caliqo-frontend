@@ -7,7 +7,7 @@ export function Header() {
     <header className="header">
       <div className="container header-inner">
         <a href="#" className="header-logo">
-          <img src="/caliqo-logo.png" alt="Caliqo" width="36" height="36" />
+          <img src="/caliqo_logo.png" alt="Caliqo" width="36" height="36" />
           <span>caliqo</span>
         </a>
         <nav className={`header-nav ${open ? 'open' : ''}`}>

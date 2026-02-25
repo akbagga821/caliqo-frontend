@@ -6,7 +6,7 @@ export function WhatWeDo() {
       <div className="container">
         <h2 className="section-title">What we do</h2>
         <p className="section-subtitle">
-          Caliqo is the quantum data dog: observability, optimization, and automation for the full quantum stack. Track hardware and backend health, optimize circuits with RL, and ship jobs faster.
+          Caliqo is the connective layer between quantum hardware and software. We provide observability, optimization, and automation for the full quantum stack. Track hardware health, optimize circuits, and ship jobs faster.
         </p>
       </div>
     </section>

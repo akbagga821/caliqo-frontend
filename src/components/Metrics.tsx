@@ -24,9 +24,9 @@ export function Metrics() {
   return (
     <section id="metrics" className="metrics section">
       <div className="container">
-        <h2 className="section-title">Metrics as your program runs</h2>
+        <h2 className="section-title">Get real-time metrics as your program runs</h2>
         <p className="section-subtitle">
-          Datadog for quantum: see CPU, compilation, QPU, and execution in one place. If noise shifts in real time, we can pivot to a different hardware backend.
+          See CPU, compilation, QPU, and execution in one place. If noise shifts in real time, we can pivot to a different hardware backend. Caliqo has you covered.
         </p>
         <div className="metrics-grid">
           {groups.map((g) => (

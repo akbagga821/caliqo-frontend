@@ -6,10 +6,10 @@ export function WhatWeDo() {
           Caliqo.
         </h2>
         <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground margin-bottom: 0.5em;">
-          Caliqo is the infrastructural middle layer between quantum hardware and software. We provide <strong>optimization</strong>, <strong>automation</strong>, and <strong>observation</strong> across the full quantum stack. 
+          Caliqo is the control plane for enterprise quantum deployment.  
         </p>
         <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground">
-          Ship jobs faster. Cheaper. Smarter.
+          We provide <strong>standardized evaluation</strong>, <strong>backend-aware optimization</strong>, and <strong>cross-provider orchestration</strong> - ensuring quantum workloads are executed efficiently and reliably. 
         </p>
       </div>
     </section>

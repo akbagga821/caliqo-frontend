@@ -8,23 +8,23 @@ import {
 const faqs = [
   {
     q: 'What is Caliqo?',
-    a: 'Caliqo is agentic DevOps for quantum: observability (track parameters, traffic, errors, T1/T2, PSD), optimization (RL bandit, ZX-calculus, error mitigation, predictive cost), and automation (backend choice, auto-submit, live metrics). Think Datadog for the quantum stack.',
+    a: 'Caliqo is the control plane for enterprise quantum deployment. We provide standardized evaluation, backend-aware optimization, and cross-provider orchestration — ensuring quantum workloads are executed efficiently and reliably.',
   },
   {
-    q: 'What can I track?',
-    a: 'Parameter drift from calibration, network traffic and request counts per backend, error rates, qubit coherence (T1, T2), power spectral density, and standard Datadog-style dashboards and alerts tailored to quantum.',
+    q: 'Is Caliqo tied to a specific quantum hardware provider?',
+    a: 'No. Caliqo is hardware-agnostic. We abstract away the differences across multiple quantum providers and architectures, enabling organizations to maintain vendor flexibility and avoid lock-in.',
   },
   {
-    q: 'How does backend routing work?',
-    a: 'You feed in a circuit and choose backend or hardware. An RL bandit loop optimizes and can switch backends. If noise or calibration drifts in real time, we can pivot to a different hardware backend automatically.',
+    q: 'Does Caliqo replace existing SDKs or vendor tooling?',
+    a: 'No. Caliqo operates above existing SDKs. It standardizes evaluation, optimization, deployment, and observability workflows while integrating into your current development and DevOps stack.',
   },
   {
-    q: 'What metrics do I see while a job runs?',
-    a: 'CPU/GPU (convergence time, preprocessing, offload), compilation (transpile time, optimization), QPU (T1/T2, gate fidelity, readout error, calibration drift), and execution (queue time, traffic, shot count efficiency).',
+    q: 'How does Caliqo account for hardware variability and calibration changes?',
+    a: 'Caliqo incorporates device architecture, performance characteristics, and up-to-date calibration data into hardware evaluation and optimization workflows. This helps teams manage execution variability before and after deployment.',
   },
   {
-    q: 'Do I need my own quantum hardware?',
-    a: 'No. Caliqo works with cloud backends and simulators. You can track, optimize, and run against the providers you already use.',
+    q: 'Who is Caliqo designed for?',
+    a: 'Caliqo is designed for enterprises and quantum-native startups integrating quantum workloads into production systems and requiring operational consistency across hardware environments.',
   },
 ]
 

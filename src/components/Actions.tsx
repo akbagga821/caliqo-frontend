@@ -32,7 +32,7 @@ export function Actions() {
     <section id="actions" className="border-t border-border py-10 md:py-14">
       <div className="container mx-auto max-w-5xl px-4 md:px-6">
         <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-          What we do
+          Platform Capabilities
         </h2>
         <p className="mt-4 max-w-2xl font-serif text-muted-foreground">
           Caliqo standardizes and automates quantum deployment across providers. We make quantum workloads production-ready by:
@@ -41,7 +41,7 @@ export function Actions() {
           {items.map((item) => (
             <Card
               key={item.title}
-              className="border border-secondary bg-secondary text-secondary-foreground shadow-sm"
+              className="border border-secondary/40 bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground shadow-md"
             >
               <CardHeader className="pb-2">
                 <h3 className="text-base font-semibold">

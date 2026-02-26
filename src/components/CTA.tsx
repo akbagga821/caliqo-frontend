@@ -8,7 +8,7 @@ export function CTA() {
           Get started with Caliqo
         </h2>
         <p className="mt-4 font-serif text-lg text-muted-foreground">
-          Peek inside quantum hardware. Deploy quantum software faster, cheaper, and smarter.
+          Standardize and scale quantum deployment across hardware providers. 
         </p>
         <Button asChild size="lg" className="mt-6">
           <a href="mailto:hello@caliqo.com?subject=Request%20a%20demo">Request a demo</a>

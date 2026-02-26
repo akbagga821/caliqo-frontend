@@ -36,12 +36,12 @@ export function Metrics() {
               className="border border-primary bg-primary text-primary-foreground shadow-sm"
             >
               <CardHeader className="pb-2">
-                <h3 className="text-xs font-semibold uppercase tracking-wider">
+                <h3 className="text-base font-semibold">
                   {g.title}
                 </h3>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-1.5 text-sm">
+                <ul className="font-serif space-y-1.5 text-sm">
                   {g.items.map((item) => (
                     <li key={item}>{item}</li>
                   ))}

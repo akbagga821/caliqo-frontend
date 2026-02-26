@@ -5,8 +5,11 @@ export function WhatWeDo() {
         <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
           Caliqo.
         </h2>
+        <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground margin-bottom: 0.5em;">
+          Caliqo is the infrastructural middle layer between quantum hardware and software. We provide <strong>optimization</strong>, <strong>automation</strong>, and <strong>observation</strong> across the full quantum stack. 
+        </p>
         <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground">
-          Caliqo is the connective layer between quantum hardware and software. We provide observability, optimization, and automation for the full quantum stack—track hardware health, optimize circuits, and ship jobs faster.
+          Ship jobs faster. Cheaper. Smarter.
         </p>
       </div>
     </section>

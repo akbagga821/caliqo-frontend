@@ -1,4 +1,4 @@
-export function WhyQuantum() {
+export function Problem() {
   return (
     <section id="problem" className="border-t border-border py-10 md:py-14">
       <div className="container mx-auto max-w-3xl px-4 md:px-6">

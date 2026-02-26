@@ -1,10 +1,9 @@
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { WhatWeDo } from './components/WhatWeDo'
-import { WhyQuantum } from './components/WhyQuantum'
+import { Problem } from './components/Problem'
 import { Actions } from './components/Actions'
 import { Metrics } from './components/Metrics'
-import { WhyNow } from './components/WhyNow'
 import { FAQ } from './components/FAQ'
 import { CTA } from './components/CTA'
 import { Footer } from './components/Footer'
@@ -16,10 +15,9 @@ function App() {
       <main>
         <Hero />
         <WhatWeDo />
-        <WhyQuantum />
+        <Problem />
         <Actions />
         <Metrics />
-        <WhyNow />
         <FAQ />
         <CTA />
       </main>

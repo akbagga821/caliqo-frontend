@@ -18,8 +18,8 @@ export function Header() {
             open ? 'flex' : 'hidden md:flex'
           )}
         >
-          <a href="#actions" className="text-sm text-muted-foreground hover:text-foreground">
-            Actions
+          <a href="#platform" className="text-sm text-muted-foreground hover:text-foreground">
+            Platform
           </a>
           <a href="#metrics" className="text-sm text-muted-foreground hover:text-foreground">
             Metrics

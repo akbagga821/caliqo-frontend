@@ -11,7 +11,7 @@ export function CTA() {
           Standardize and scale quantum deployment across hardware providers. 
         </p>
         <Button asChild size="lg" className="mt-6">
-          <a href="mailto:hello@caliqo.com?subject=Request%20a%20demo">Request a demo</a>
+          <a href="mailto:team@caliqo.com?subject=Demo%20request">Request a demo</a>
         </Button>
       </div>
     </section>

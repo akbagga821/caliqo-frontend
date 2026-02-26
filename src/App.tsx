@@ -1,7 +1,7 @@
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { WhatWeDo } from './components/WhatWeDo'
-import { Actions } from './components/Actions'
+import { Platform } from './components/Platform'
 import { Metrics } from './components/Metrics'
 import { FAQ } from './components/FAQ'
 import { CTA } from './components/CTA'
@@ -14,7 +14,7 @@ function App() {
       <main>
         <Hero />
         <WhatWeDo />
-        <Actions />
+        <Platform />
         <Metrics />
         <FAQ />
         <CTA />

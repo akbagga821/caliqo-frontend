@@ -1,5 +1,3 @@
-import { useState, useRef } from 'react'
-
 const groups = [
   {
     title: 'Compilation',
@@ -20,11 +18,6 @@ const groups = [
 ]
 
 export function Metrics() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const lastHoveredRef = useRef<number>(0)
-  if (hoveredIndex !== null) lastHoveredRef.current = hoveredIndex
-  const displayIndex = lastHoveredRef.current
-
   return (
     <section id="metrics" className="border-t border-border py-10 md:py-14">
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
@@ -32,56 +25,58 @@ export function Metrics() {
           Operational Visibility
         </h2>
         <p className="mt-4 max-w-2xl font-serif text-muted-foreground">
-          Gain real-time insight into hardware performance. Monitor device calibration, queue conditions, and workload behavior to maintian reliaable, production-grade execution. 
+          Gain real-time insight into hardware performance. Monitor device calibration, queue conditions, and workload behavior to maintain reliable, production-grade execution.
         </p>
 
-        {/* Static "What we track" under subheader */}
-        <p className="mt-6 text-sm font-medium text-muted-foreground">
-          What we track
-        </p>
-
-        {/* Fixed-height area for list so the line never moves */}
-        <div className="min-h-[160px] w-full max-w-2xl">
-          <div
-            className={`transition-opacity duration-300 ${
-              hoveredIndex !== null ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            }`}
-          >
-            <ul className="font-serif text-lg leading-relaxed text-foreground">
-              {groups[displayIndex].items.map((item) => (
-                <li key={item} className="py-1">
-                  {item}
-                </li>
-              ))}
-            </ul>
+        {/* Timeline: static info above each number, then line + circles, then labels */}
+        <div className="mt-10 w-full">
+          <div className="grid grid-cols-4 gap-x-4">
+            {/* Row 1: static content centered above each number */}
+            {groups.map((g) => (
+              <div key={g.title} className="mb-4 min-h-[100px] text-center">
+                <p className="text-sm font-semibold text-foreground">
+                  {g.title}
+                </p>
+                <ul className="mt-1.5 font-serif text-sm leading-relaxed text-muted-foreground">
+                  {g.items.map((item) => (
+                    <li key={item} className="py-0.5">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-        </div>
 
-        {/* Pipeline: line in fixed band, circles centered on line, grid aligns labels */}
-        <div className="relative mt-4 w-full grid grid-cols-4 gap-y-3">
-          <div
-            className="absolute left-0 right-0 top-5 h-0.5 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary/30 via-primary to-primary/30 col-span-4"
-            aria-hidden
-          />
-          {groups.map((g, i) => (
-            <div key={g.title} className="flex flex-col items-center justify-center">
-              <button
-                type="button"
-                onMouseEnter={() => setHoveredIndex(i)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className={`group z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 font-semibold transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-                  hoveredIndex === i
-                    ? 'border-primary bg-primary text-primary-foreground'
-                    : 'border-primary/60 bg-background text-foreground group-hover:border-primary'
-                }`}
+          {/* Line + circles: fixed-height row so line runs through circle centers */}
+          <div className="relative grid h-10 grid-cols-4 gap-x-4">
+            <div
+              className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary/30 via-primary to-primary/30"
+              aria-hidden
+            />
+            {groups.map((g, i) => (
+              <div
+                key={g.title}
+                className="relative z-10 flex items-center justify-center"
               >
-                {i + 1}
-              </button>
-              <span className="mt-3 text-center text-sm font-medium text-foreground">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-primary/60 bg-background font-semibold text-foreground">
+                  {i + 1}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Labels centered under circles */}
+          <div className="grid grid-cols-4 gap-x-4 pt-2">
+            {groups.map((g) => (
+              <span
+                key={g.title}
+                className="text-center text-sm font-medium text-muted-foreground"
+              >
                 {g.title}
               </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

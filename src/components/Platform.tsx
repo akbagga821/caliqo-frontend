@@ -27,9 +27,9 @@ const items = [
   },
 ]
 
-export function Actions() {
+export function Platform() {
   return (
-    <section id="actions" className="border-t border-border py-10 md:py-14">
+    <section id="platform" className="border-t border-border py-10 md:py-14">
       <div className="container mx-auto max-w-5xl px-4 md:px-6">
         <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
           Platform Capabilities
@@ -39,21 +39,23 @@ export function Actions() {
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
-            <Card
+            <div
               key={item.title}
-              className="border border-secondary/40 bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground shadow-md"
+              className="rounded-lg bg-gradient-to-br from-secondary to-secondary/80 p-[2px] shadow-lg transition-shadow duration-200 hover:shadow-xl"
             >
-              <CardHeader className="pb-2">
-                <h3 className="text-base font-semibold">
-                  {item.title}
-                </h3>
-              </CardHeader>
-              <CardContent>
-                <p className="font-serif text-sm leading-relaxed opacity-90">
-                  {item.description}
-                </p>
-              </CardContent>
-            </Card>
+              <Card className="h-full rounded-[calc(0.5rem-2px)] border-0 bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground shadow-none">
+                <CardHeader className="pb-2">
+                  <h3 className="text-base font-semibold">
+                    {item.title}
+                  </h3>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-serif text-sm leading-relaxed opacity-90">
+                    {item.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
       </div>

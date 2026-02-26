@@ -7,8 +7,8 @@ export function Footer() {
           <span>caliqo</span>
         </a>
         <nav className="flex gap-6">
-          <a href="#actions" className="text-sm text-secondary-foreground/80 hover:text-secondary-foreground">
-            Actions
+          <a href="#platform" className="text-sm text-secondary-foreground/80 hover:text-secondary-foreground">
+            Platform
           </a>
           <a href="#metrics" className="text-sm text-secondary-foreground/80 hover:text-secondary-foreground">
             Metrics

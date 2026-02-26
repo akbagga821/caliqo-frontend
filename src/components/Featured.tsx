@@ -10,7 +10,7 @@ const items = [
   {
     title: 'Optimization & automation',
     description: 'RL bandit routing, ZX-calculus optimization, error mitigation, and auto-submit with live metrics.',
-    href: '#actions',
+    href: '#platform',
   },
 ]
 

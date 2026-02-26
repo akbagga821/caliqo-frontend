@@ -7,27 +7,27 @@
     --font-sans: 'DM Sans', system-ui, sans-serif;
     --font-serif: 'Lora', Georgia, serif;
     --radius: 0.5rem;
-    /* Pale Slate #B8BACF, Lavender Grey #999AC6, Grey Olive #798071 */
-    --background: 235 30% 98%;
-    --foreground: 87 8% 25%;
+    /* Calico: deep orange, brown, black, white, cream */
+    --background: 32 60% 97%;
+    --foreground: 0 0% 9%;
     --card: 0 0% 100%;
-    --card-foreground: 87 8% 25%;
+    --card-foreground: 0 0% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 87 8% 25%;
-    --primary: 239 31% 69%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 22 72% 47%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 87 6% 47%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 235 24% 92%;
-    --muted-foreground: 87 6% 47%;
-    --accent: 235 24% 94%;
-    --accent-foreground: 87 8% 25%;
-    --destructive: 0 84% 60%;
+    --secondary: 25 35% 28%;
+    --secondary-foreground: 32 60% 97%;
+    --muted: 32 40% 93%;
+    --muted-foreground: 25 35% 28%;
+    --accent: 28 55% 55%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 22 72% 47%;
     --destructive-foreground: 0 0% 100%;
-    --border: 239 25% 82%;
-    --input: 239 25% 88%;
-    --ring: 239 31% 69%;
-    --primary-light: 235 24% 77%;
+    --border: 30 25% 88%;
+    --input: 30 25% 90%;
+    --ring: 22 72% 47%;
+    --primary-light: 28 55% 55%;
   }
 }
 
@@ -46,5 +46,14 @@ p,
   }
   body {
     @apply bg-background text-foreground antialiased font-sans;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -1,73 +1,49 @@
-:root {
-  --bg: #fff;
-  --fg: #0a0a0a;
-  --muted: #525252;
-  --border: #e5e5e5;
-  --gap: clamp(1.5rem, 4vw, 4rem);
-  --max-width: 72rem;
-  --font: 'DM Sans', system-ui, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --font-serif: 'Lora', Georgia, serif;
+    --radius: 0.5rem;
+    /* Brown, orange, white, black — white/cream background */
+    --background: 40 20% 98%;        /* cream #faf8f5 */
+    --foreground: 0 0% 9%;            /* black */
+    --card: 0 0% 100%;               /* white */
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 24 95% 42%;            /* darker orange */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 25 35% 22%;          /* brown */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 25 15% 92%;             /* light brown tint */
+    --muted-foreground: 25 20% 40%;   /* brown text */
+    --accent: 40 25% 94%;             /* cream accent */
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 25 15% 88%;
+    --input: 25 15% 88%;
+    --ring: 24 95% 42%;
+  }
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* Serif for subtitles and paragraphs */
+p,
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font);
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--fg);
-  background: var(--bg);
-  -webkit-font-smoothing: antialiased;
-}
-
-#root {
-  min-height: 100vh;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--gap);
-}
-
-.section {
-  padding: clamp(4rem, 10vw, 8rem) 0;
-}
-
-.section-title {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin: 0 0 1rem;
-}
-
-.section-subtitle {
-  font-size: 1rem;
-  color: var(--muted);
-  max-width: 42ch;
-  margin: 0;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+  }
 }

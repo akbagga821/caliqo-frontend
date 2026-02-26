@@ -1,4 +1,4 @@
-import './Features.css'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 const features = [
   {
@@ -17,15 +17,28 @@ const features = [
 
 export function Features() {
   return (
-    <section className="features section">
-      <div className="container">
-        <h2 className="section-title">Built for the quantum stack</h2>
-        <div className="features-grid">
+    <section className="py-20 md:py-28">
+      <div className="container mx-auto max-w-5xl px-4 md:px-6">
+        <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+          Built for the quantum stack
+        </h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {features.map((f) => (
-            <div key={f.title} className="feature-card">
-              <h3 className="feature-title">{f.title}</h3>
-              <p className="feature-body">{f.body}</p>
-            </div>
+            <Card
+              key={f.title}
+              className="border-border bg-card shadow-sm transition-shadow hover:shadow-md"
+            >
+              <CardHeader>
+                <h3 className="text-lg font-semibold text-foreground">
+                  {f.title}
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {f.body}
+                </p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

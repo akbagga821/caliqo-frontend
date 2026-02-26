@@ -1,5 +1,9 @@
-import { useState } from 'react'
-import './FAQ.css'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 
 const faqs = [
   {
@@ -25,31 +29,24 @@ const faqs = [
 ]
 
 export function FAQ() {
-  const [open, setOpen] = useState<number | null>(0)
   return (
-    <section id="faq" className="faq section">
-      <div className="container">
-        <h2 className="section-title">Questions & answers</h2>
-        <div className="faq-list">
+    <section id="faq" className="py-10 md:py-14">
+      <div className="container mx-auto max-w-2xl px-4 md:px-6">
+        <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+          Questions & answers
+        </h2>
+        <Accordion type="single" collapsible defaultValue="item-0" className="mt-8">
           {faqs.map((item, i) => (
-            <div
-              key={item.q}
-              className={`faq-item ${open === i ? 'open' : ''}`}
-            >
-              <button
-                type="button"
-                className="faq-question"
-                onClick={() => setOpen(open === i ? null : i)}
-                aria-expanded={open === i}
-              >
+            <AccordionItem key={item.q} value={`item-${i}`} className="border-border">
+              <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline hover:text-primary">
                 {item.q}
-              </button>
-              <div className="faq-answer">
-                <p>{item.a}</p>
-              </div>
-            </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="font-serif text-muted-foreground">{item.a}</p>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
   )

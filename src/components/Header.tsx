@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 export function Header() {
   const [open, setOpen] = useState(false)
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-white">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <a href="#" className="flex items-center gap-2 font-semibold tracking-tight text-foreground">
           <img src="/caliqo_logo.png" alt="Caliqo" className="h-9 w-9 rounded-md" />
@@ -14,7 +14,7 @@ export function Header() {
         </a>
         <nav
           className={cn(
-            'absolute left-0 right-0 top-full flex flex-col gap-4 bg-background p-4 md:static md:flex md:flex-row md:items-center md:gap-8 md:p-0',
+            'absolute left-0 right-0 top-full flex flex-col gap-4 border-b border-border bg-white p-4 md:static md:flex md:flex-row md:items-center md:gap-8 md:border-0 md:p-0',
             open ? 'flex' : 'hidden md:flex'
           )}
         >

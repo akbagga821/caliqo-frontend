@@ -7,26 +7,27 @@
     --font-sans: 'DM Sans', system-ui, sans-serif;
     --font-serif: 'Lora', Georgia, serif;
     --radius: 0.5rem;
-    /* Brown, orange, white, black — white/cream background */
-    --background: 40 20% 98%;        /* cream #faf8f5 */
-    --foreground: 0 0% 9%;            /* black */
-    --card: 0 0% 100%;               /* white */
-    --card-foreground: 0 0% 9%;
+    /* Pale Slate #B8BACF, Lavender Grey #999AC6, Grey Olive #798071 */
+    --background: 235 30% 98%;
+    --foreground: 87 8% 25%;
+    --card: 0 0% 100%;
+    --card-foreground: 87 8% 25%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
-    --primary: 24 95% 42%;            /* darker orange */
+    --popover-foreground: 87 8% 25%;
+    --primary: 239 31% 69%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 25 35% 22%;          /* brown */
-    --secondary-foreground: 0 0% 98%;
-    --muted: 25 15% 92%;             /* light brown tint */
-    --muted-foreground: 25 20% 40%;   /* brown text */
-    --accent: 40 25% 94%;             /* cream accent */
-    --accent-foreground: 0 0% 9%;
+    --secondary: 87 6% 47%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 235 24% 92%;
+    --muted-foreground: 87 6% 47%;
+    --accent: 235 24% 94%;
+    --accent-foreground: 87 8% 25%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 25 15% 88%;
-    --input: 25 15% 88%;
-    --ring: 24 95% 42%;
+    --border: 239 25% 82%;
+    --input: 239 25% 88%;
+    --ring: 239 31% 69%;
+    --primary-light: 235 24% 77%;
   }
 }
 

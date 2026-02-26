@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { cn } from '@/lib/utils'
 
 const groups = [
   {
@@ -13,7 +12,6 @@ const groups = [
   {
     title: 'QPU',
     items: ['T1 / T2 lifetime', 'Gate fidelity', 'Readout error', 'Calibration drift'],
-    highlight: true,
   },
   {
     title: 'Execution',
@@ -23,7 +21,7 @@ const groups = [
 
 export function Metrics() {
   return (
-    <section id="metrics" className="py-10 md:py-14">
+    <section id="metrics" className="border-t border-border py-10 md:py-14">
       <div className="container mx-auto max-w-5xl px-4 md:px-6">
         <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
           Metrics as your program runs
@@ -35,18 +33,15 @@ export function Metrics() {
           {groups.map((g) => (
             <Card
               key={g.title}
-              className={cn(
-                'transition-shadow hover:shadow-md',
-                g.highlight && 'border-primary/40 bg-primary text-primary-foreground shadow-md'
-              )}
+              className="border border-primary bg-primary text-primary-foreground shadow-sm"
             >
               <CardHeader className="pb-2">
-                <h3 className="text-xs font-semibold uppercase tracking-wider opacity-90">
+                <h3 className="text-xs font-semibold uppercase tracking-wider">
                   {g.title}
                 </h3>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-1.5 text-sm opacity-90">
+                <ul className="space-y-1.5 text-sm">
                   {g.items.map((item) => (
                     <li key={item}>{item}</li>
                   ))}

@@ -14,9 +14,6 @@ export function Hero() {
           <Button asChild size="lg">
             <a href="#contact">Request a demo</a>
           </Button>
-          <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
-            <a href="#intro">Learn more</a>
-          </Button>
         </div>
       </div>
     </section>

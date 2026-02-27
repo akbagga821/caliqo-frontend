@@ -5,6 +5,13 @@ import { cn } from '@/lib/utils'
 
 export function Header() {
   const [open, setOpen] = useState(false)
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    setOpen(false)
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-white">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
@@ -18,17 +25,34 @@ export function Header() {
             open ? 'flex' : 'hidden md:flex'
           )}
         >
-          <a href="#platform" className="text-sm text-muted-foreground hover:text-foreground">
+          <button
+            type="button"
+            onClick={() => scrollTo('platform')}
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
             Platform
-          </a>
-          <a href="#metrics" className="text-sm text-muted-foreground hover:text-foreground">
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollTo('metrics')}
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
             Metrics
-          </a>
-          <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground">
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollTo('faq')}
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
             FAQ
-          </a>
+          </button>
           <Button asChild size="sm" className="md:ml-2">
-            <a href="#contact">Request a demo</a>
+            <button
+              type="button"
+              onClick={() => scrollTo('contact')}
+            >
+              Request a demo
+            </button>
           </Button>
         </nav>
         <button

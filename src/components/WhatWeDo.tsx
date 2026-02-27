@@ -9,7 +9,7 @@ export function WhatWeDo() {
           Caliqo is the control plane for enterprise quantum deployment.  
         </p>
         <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground">
-          We provide <strong>standardized evaluation</strong>, <strong>backend-aware optimization</strong>, and <strong>cross-provider orchestration</strong> - ensuring quantum workloads are executed efficiently and reliably. 
+          We provide <strong>standardized evaluation</strong>, <strong>backend-aware optimization</strong>, and <strong>cross-provider orchestration</strong> — ensuring quantum workloads are executed efficiently and reliably. 
         </p>
       </div>
     </section>

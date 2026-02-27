@@ -1,6 +1,6 @@
 export function WhatWeDo() {
   return (
-    <section className="py-10 md:py-14">
+    <section id="intro" className="py-10 md:py-14">
       <div className="container mx-auto max-w-3xl px-4 md:px-6">
         <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
           Caliqo.

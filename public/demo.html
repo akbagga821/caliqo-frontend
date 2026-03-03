@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Demo — Caliqo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #0a0b0d;
+      color: #f0f0f0;
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 720px) {
+      .page { grid-template-columns: 1fr; padding: 2rem 1rem; }
+    }
+    .left {
+      padding-top: 0.5rem;
+    }
+    .title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      color: #f0f0f0;
+    }
+    .intro {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #9ca3af;
+    }
+    .form-section {
+      background: transparent;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #f0f0f0;
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #f0f0f0;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #6b7280;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .btn-submit {
+      display: block;
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #c95410;
+      border: 1px solid #c95410;
+      border-radius: 6px;
+      padding: 0.85rem 1.25rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-submit:hover {
+      background: #e86a14;
+      border-color: #e86a14;
+    }
+    .back-link {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      text-decoration: none;
+      margin-bottom: 2rem;
+    }
+    .back-link:hover { color: #f0f0f0; }
+    .form-section.success-state { display: block; }
+    .success-state .form-success { display: block; }
+    .success-state #demo-form { display: none; }
+    .form-success {
+      display: none;
+      padding: 2rem 0;
+    }
+    .form-success h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 300;
+      color: #f0f0f0;
+      margin-bottom: 0.75rem;
+    }
+    .form-success p {
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    .form-error {
+      display: none;
+      color: #e86a14;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    .form-error.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="left">
+      <a href="/" class="back-link">← Back</a>
+      <h1 class="title">Book a Demo</h1>
+      <p class="intro">See how Caliqo brings a DevOps layer to quantum computing. Book a short call and we’ll walk you through evaluation, hardware-aware optimization, and cross-provider orchestration for your stack.</p>
+    </div>
+    <div class="form-section" id="form-section">
+      <div class="form-success" id="form-success">
+        <h2>Thank you</h2>
+        <p>We’ve received your request and will be in touch at the email you provided to schedule your demo.</p>
+      </div>
+      <form id="demo-form" action="#" method="post">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Work Email *</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label for="company">Company *</label>
+          <input type="text" id="company" name="company" placeholder="Company name" required />
+        </div>
+        <div class="form-group">
+          <label for="help">How can we help?</label>
+          <textarea id="help" name="help" placeholder="Tell us about your use case..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">Request Demo</button>
+        <p class="form-error" id="form-error">Something went wrong. Please try again or email team@caliqo.dev.</p>
+      </form>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // Replace with your Formspree form ID (formspree.io → New form → set email to team@caliqo.dev)
+      var FORMSPREE_FORM_ID = 'mzdalvqb';
+      var form = document.getElementById('demo-form');
+      var formSection = document.getElementById('form-section');
+      var formSuccess = document.getElementById('form-success');
+      var submitBtn = document.getElementById('submit-btn');
+      var formError = document.getElementById('form-error');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (FORMSPREE_FORM_ID === 'YOUR_FORMSPREE_FORM_ID') {
+          formError.textContent = 'Form is not configured. Please set FORMSPREE_FORM_ID in the page source.';
+          formError.classList.add('visible');
+          return;
+        }
+        formError.classList.remove('visible');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        var payload = {
+          name: document.getElementById('name').value.trim(),
+          _replyto: document.getElementById('email').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          company: document.getElementById('company').value.trim(),
+          message: document.getElementById('help').value.trim()
+        };
+
+        fetch('https://formspree.io/f/' + FORMSPREE_FORM_ID, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (r) {
+            if (r.ok) {
+              formSection.classList.add('success-state');
+            } else {
+              throw new Error();
+            }
+          })
+          .catch(function () {
+            formError.classList.add('visible');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Request Demo';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

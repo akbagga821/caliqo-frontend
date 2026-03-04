@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join the waitlist — Caliqo</title>
-  <link rel="icon" href="/caliqo_logo.png" type="image/png" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=DM+Sans:ital,wght@0,400;0,500&display=swap" rel="stylesheet" />
@@ -101,6 +101,18 @@
       border-color: #d85f12;
     }
     .btn:active { transform: scale(0.98); }
+
+    #thankyou-view .cat-celeb {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      display: block;
+      animation: cat-float 2.5s ease-in-out infinite;
+    }
+    @keyframes cat-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
   </style>
 </head>
 <body>
@@ -123,6 +135,7 @@
       </form>
     </div>
     <div id="thankyou-view" style="display: none;">
+      <img src="/caliqo_logo.png" alt="" class="cat-celeb" aria-hidden="true" />
       <h1>You're on the list</h1>
       <p class="sub">Thanks for signing up. We'll be in touch.</p>
       <a href="/" class="btn">← Back to Caliqo</a>

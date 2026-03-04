@@ -1,0 +1,12 @@
+# Serve waitlist page at /waitlist (no .html)
+[[redirects]]
+  from = "/waitlist"
+  to = "/waitlist/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/waitlist/"
+  to = "/waitlist/index.html"
+  status = 200
+  force = true

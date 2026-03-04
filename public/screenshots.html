@@ -94,15 +94,37 @@
     .mock-table { width: 100%; font-size: 0.8rem; border-collapse: collapse; }
     .mock-table th, .mock-table td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); color: #d1d5db; }
     .mock-table th { color: #9ca3af; font-weight: 500; }
+    .mock-table .row-active td { background: rgba(201,84,16,0.12); border-top: 1px solid rgba(201,84,16,0.45); border-bottom: 1px solid rgba(201,84,16,0.45); }
+    .mock-table .row-active td:first-child { border-left: 1px solid rgba(201,84,16,0.45); border-radius: 6px 0 0 6px; }
+    .mock-table .row-active td:last-child { border-right: 1px solid rgba(201,84,16,0.45); border-radius: 0 6px 6px 0; }
     .mock-badge { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.7rem; }
     .mock-badge.ok { background: rgba(40,200,64,0.2); color: #4ade80; }
     .mock-badge.warn { background: rgba(254,188,46,0.2); color: #facc15; }
     .mock-card { background: rgba(255,255,255,0.05); border-radius: 6px; padding: 1rem; margin-bottom: 0.75rem; }
     .mock-card h4 { font-size: 0.85rem; color: #f0f0f0; margin-bottom: 0.5rem; font-weight: 500; }
     .mock-card p, .mock-card pre { font-size: 0.75rem; color: #9ca3af; }
+    .mock-card .mock-code { color: #9cc9ff; }
     .mock-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; margin-top: 0.4rem; }
     .mock-bar span { display: block; height: 100%; background: #c95410; border-radius: 3px; }
-    .mock-code { background: #0d0e12; padding: 0.75rem; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 0.7rem; color: #9ca3af; overflow-x: auto; }
+    .mock-code { background: #0d0e12; padding: 0.75rem; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 0.7rem; color: #9cc9ff; overflow-x: auto; }
+    .yaml-panel { background: rgba(10,11,14,0.9); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.85rem; margin: 0.75rem 0; }
+    .yaml-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; color: #e5e7eb; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .yaml-header .label { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; }
+    .yaml-header .icon { width: 18px; height: 18px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; color: #9ca3af; }
+    .yaml-body { background: #0b0d12; border-radius: 8px; padding: 0.75rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.68rem; color: #e5e7eb; }
+    .yaml-body .key { color: #9cc9ff; }
+    .yaml-body .str { color: #88d8a8; }
+    .yaml-body .num { color: #f8c05a; }
+    .yaml-body .comment { color: #6b7280; }
+    .queue-viz { background: rgba(255,255,255,0.05); border-radius: 6px; padding: 0.75rem 0.9rem; margin-top: 0.75rem; }
+    .queue-viz h4 { font-size: 0.8rem; color: #f0f0f0; margin-bottom: 0.45rem; font-weight: 500; }
+    .queue-line { display: flex; align-items: center; gap: 0.35rem; margin: 0.35rem 0 0.6rem; flex-wrap: wrap; }
+    .queue-slot { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.55rem; border-radius: 999px; background: rgba(255,255,255,0.06); color: #9ca3af; font-size: 0.7rem; border: 1px solid rgba(255,255,255,0.08); }
+    .queue-slot .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.35); }
+    .queue-slot.current { color: #f0f0f0; background: rgba(201,84,16,0.2); border-color: rgba(201,84,16,0.6); }
+    .queue-slot.current .dot { background: #c95410; box-shadow: 0 0 0 3px rgba(201,84,16,0.25); }
+    .queue-slot .tag { font-size: 0.65rem; padding: 0.1rem 0.35rem; border-radius: 999px; background: rgba(255,255,255,0.08); color: #cbd5f5; }
+    .queue-meta { display: flex; justify-content: space-between; font-size: 0.7rem; color: #9ca3af; }
 
     /* Unified sidebar — same items everywhere; .sidebar-active-* on body or panel sets active */
     .mock-sidebar .nav-item { padding: 0.4rem 0.5rem; border-radius: 4px; margin-bottom: 0.2rem; }
@@ -110,17 +132,22 @@
 
     /* Circuit visualization */
     .circuit-viz {
-      background: #0d0e12;
+      background: #f7f5ef;
       border-radius: 6px;
       padding: 1rem;
       font-size: 0.7rem;
-      color: #9ca3af;
+      color: #111827;
       margin-bottom: 0.75rem;
+      box-shadow: inset 0 0 0 1px rgba(17,24,39,0.12);
     }
+    .circuit-title { font-size: 0.75rem; color: #111827; margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 0.02em; }
     .circuit-viz svg { display: block; width: 100%; height: auto; }
-    .circuit-viz .qubit-line { stroke: rgba(255,255,255,0.25); stroke-width: 1; }
-    .circuit-viz .gate { fill: rgba(201,84,16,0.35); stroke: rgba(201,84,16,0.7); }
-    .circuit-viz .gate-text { fill: #f0f0f0; font-family: 'DM Sans', sans-serif; font-size: 8px; font-weight: 500; }
+    .circuit-viz .qubit-line { stroke: rgba(17,24,39,0.55); stroke-width: 1; }
+    .circuit-viz .qubit-label { fill: #111827; font-family: "Cormorant Garamond", Georgia, serif; font-size: 10px; }
+    .circuit-viz .gate { fill: #ffffff; stroke: #111827; stroke-width: 1; }
+    .circuit-viz .gate-text { fill: #111827; font-family: "Cormorant Garamond", Georgia, serif; font-size: 9px; font-weight: 600; }
+    .circuit-viz .control-line { stroke: #111827; stroke-width: 1; }
+    .circuit-viz .control-circle { fill: #f7f5ef; stroke: #111827; stroke-width: 1; }
 
     /* Observability graphs */
     .obs-graph { background: rgba(255,255,255,0.04); border-radius: 6px; padding: 0.75rem; margin-bottom: 0.75rem; }
@@ -129,7 +156,50 @@
     .obs-graph .grid-line { stroke: rgba(255,255,255,0.06); stroke-width: 0.5; }
     .obs-graph .line { fill: none; stroke: #c95410; stroke-width: 1.5; }
     .obs-graph .line-alt { fill: none; stroke: #7c9ce0; stroke-width: 1.5; }
-    .obs-graph .bar { fill: rgba(201,84,16,0.4); }
+    .obs-graph .bar { fill: #c95410; }
+    .obs-dashboard { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0.45rem; }
+    .obs-card {
+      background: rgba(15,16,20,0.7);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.45rem 0.55rem;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .obs-compact { padding: 0.35rem 0.5rem; }
+    .obs-section {
+      grid-column: span 12;
+      padding: 0.25rem 0.4rem;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.04);
+      color: #cbd5f5;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .obs-wide { grid-column: span 8; }
+    .obs-medium { grid-column: span 6; }
+    .obs-narrow { grid-column: span 4; }
+    .obs-mini { grid-column: span 3; }
+    .obs-title { font-size: 0.65rem; color: #cbd5f5; margin-bottom: 0.2rem; font-weight: 500; letter-spacing: 0.02em; }
+    .obs-value { font-size: 0.9rem; color: #f0f0f0; font-weight: 600; margin-bottom: 0.2rem; }
+    .obs-sub { font-size: 0.6rem; color: #9ca3af; }
+    .obs-spark { width: 100%; height: 34px; display: block; margin: 0.2rem 0; }
+    .obs-spark .grid { stroke: rgba(255,255,255,0.06); stroke-width: 0.5; }
+    .obs-spark .line { fill: none; stroke: #c95410; stroke-width: 1.6; }
+    .obs-spark .line-alt { fill: none; stroke: #7c9ce0; stroke-width: 1.4; }
+    .obs-spark .bar { fill:#7c9ce0; }
+    .obs-spark .bar-accent { fill: #c95410; }
+    .obs-pill { display: inline-flex; gap: 0.35rem; align-items: center; padding: 0.15rem 0.45rem; border-radius: 999px; background: rgba(255,255,255,0.06); color: #cbd5f5; font-size: 0.6rem; }
+    .obs-kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.35rem; height: 100%; }
+    .obs-kpi { font-size: 0.62rem; color: #e5e7eb; background: rgba(255,255,255,0.04); border-radius: 6px; padding: 0.25rem 0.35rem; }
+    .obs-kpi span { color: #9ca3af; display: block; margin-top: 0.1rem; font-size: 0.58rem; }
+    .obs-logs { grid-column: span 12; background: rgba(10,11,14,0.95); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.6rem 0.75rem; }
+    .obs-logs h4 { font-size: 0.7rem; color: #cbd5f5; margin-bottom: 0.45rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .obs-logs pre { margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.65rem; color: #9cc9ff; line-height: 1.5; max-height: 120px; overflow: hidden; }
+    .obs-logs .ts { color: #6b7280; }
+    .obs-logs .ok { color: #4ade80; }
+    .obs-logs .warn { color: #facc15; }
   </style>
 </head>
 <body>
@@ -158,19 +228,21 @@
             <div class="nav-item">Performance</div>
           </div>
           <div>
-            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Workload queue & policy</h4>
+            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Workload Queue & Policy</h4>
             <table class="mock-table">
               <thead><tr><th>Job</th><th>Backend</th><th>Policy</th><th>Status</th></tr></thead>
               <tbody>
-                <tr><td>vqe-circuit-42</td><td>ibm_kyoto</td><td>min-latency</td><td><span class="mock-badge ok">Routed</span></td></tr>
+                <tr class="row-active"><td>vqe-circuit-42 </td><td>ibm_kyoto</td><td>min-latency</td><td><span class="mock-badge ok">Routed</span></td></tr>
                 <tr><td>qaoa-opt-17</td><td>ionq_harmony</td><td>max-fidelity</td><td><span class="mock-badge ok">Routed</span></td></tr>
                 <tr><td>shor-n-143</td><td>—</td><td>cost-aware</td><td><span class="mock-badge warn">Queued</span></td></tr>
+                <tr><td>chem-sim-08</td><td>qci_phoenix</td><td>throughput</td><td><span class="mock-badge ok">Routed</span></td></tr>
+                <tr><td>grover-64q</td><td>simulon_gaussian</td><td>max-fidelity</td><td><span class="mock-badge warn">Queued</span></td></tr>
               </tbody>
             </table>
             <div class="mock-card" style="margin-top:1rem;">
               <h4>Active policy: min-latency</h4>
-              <p>Backend performance and calibration data are used in real time to select the optimal QPU.</p>
-              <div class="mock-bar"><span style="width:78%"></span></div>
+              <h4>Chosen processor: ibm_kyoto</h4>
+              <p>127 qubits · Status: Calibrating · Type: Superconducting · Pending jobs: 14</p>
             </div>
           </div>
         </div>
@@ -192,32 +264,36 @@
             <div class="nav-item">Performance</div>
           </div>
           <div>
-            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Circuit → Target backend</h4>
-            <div class="circuit-viz">
-              <svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
-                <defs><marker id="dot" markerWidth="4" markerHeight="4" refX="2" refY="2"><circle cx="2" cy="2" r="1.5" fill="#9ca3af"/></marker></defs>
-                <!-- Qubit lines -->
-                <line x1="20" y1="18" x2="300" y2="18" class="qubit-line"/><text x="4" y="22" fill="#6b7280">q0</text>
-                <line x1="20" y1="42" x2="300" y2="42" class="qubit-line"/><text x="4" y="46" fill="#6b7280">q1</text>
-                <line x1="20" y1="66" x2="300" y2="66" class="qubit-line"/><text x="4" y="70" fill="#6b7280">q2</text>
-                <line x1="20" y1="90" x2="300" y2="90" class="qubit-line"/><text x="4" y="94" fill="#6b7280">q3</text>
-                <!-- Gates -->
-                <rect x="55" y="10" width="28" height="16" rx="3" class="gate"/><text x="63" y="21" class="gate-text">H</text>
-                <rect x="115" y="34" width="28" height="16" rx="3" class="gate"/><text x="120" y="45" class="gate-text">X</text>
-                <line x1="129" y1="26" x2="129" y2="50" stroke="#7c9ce0" stroke-width="1"/>
-                <circle cx="129" cy="26" r="4" fill="none" stroke="#7c9ce0" stroke-width="1"/>
-                <circle cx="129" cy="50" r="3" fill="#7c9ce0"/>
-                <rect x="175" y="58" width="28" height="16" rx="3" class="gate"/><text x="183" y="69" class="gate-text">H</text>
-                <rect x="235" y="34" width="28" height="16" rx="3" class="gate"/><text x="240" y="45" class="gate-text">Z</text>
-                <line x1="249" y1="26" x2="249" y2="58" stroke="#7c9ce0" stroke-width="1"/>
-                <circle cx="249" cy="26" r="4" fill="none" stroke="#7c9ce0" stroke-width="1"/>
-                <circle cx="249" cy="58" r="3" fill="#7c9ce0"/>
-              </svg>
+            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Compilation and Optimization</h4>
+            <div class="yaml-panel">
+              <div class="yaml-header">
+                <div class="label"><span class="icon">{ }</span> Pipeline YAML · quantum compile</div>
+                <div class="icon">⧉</div>
+              </div>
+              <div class="yaml-body">
+                <span class="key">trigger</span>:<br/>
+                - <span class="str">quantum/main</span><br/><br/>
+                <span class="key">pool</span>:<br/>
+                &nbsp;&nbsp;<span class="key">vmImage</span>: <span class="str">'cuda-12-quantum'</span><br/><br/>
+                <span class="key">steps</span>:<br/>
+                - <span class="key">task</span>: <span class="str">qpu-compile@3</span><br/>
+                &nbsp;&nbsp;<span class="key">displayName</span>: <span class="str">Compile circuit (native gates)</span><br/>
+                &nbsp;&nbsp;<span class="key">inputs</span>:<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">backend</span>: <span class="str">ibm_kyoto</span><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">optimizationLevel</span>: <span class="num">3</span><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">shots</span>: <span class="num">2000</span><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">seed</span>: <span class="num">42</span><br/>
+                - <span class="key">task</span>: <span class="str">qpu-verify@2</span><br/>
+                &nbsp;&nbsp;<span class="key">displayName</span>: <span class="str">Validate depth &amp; error budget</span><br/>
+                &nbsp;&nbsp;<span class="key">inputs</span>:<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">maxDepth</span>: <span class="num">12000</span><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">maxError</span>: <span class="num">0.02</span><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">gateSet</span>: <span class="str">['rz','sx','cx']</span><br/>
+              </div>
             </div>
             <div class="mock-card">
               <h4>Target: ibm_kyoto · Optimized depth: 12</h4>
               <p>Deployment-ready artifact built for this QPU. Passes CI checks.</p>
-              <div class="mock-bar"><span style="width:100%"></span></div>
             </div>
           </div>
         </div>
@@ -239,16 +315,23 @@
             <div class="nav-item">Performance</div>
           </div>
           <div>
-            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Latest runs</h4>
+            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Latest Jobs</h4>
             <table class="mock-table">
-              <thead><tr><th>Run</th><th>Resource est.</th><th>Cost est.</th><th>Result</th></tr></thead>
+              <thead><tr><th>Job</th><th>Resource est.</th><th>Cost est.</th><th>Result</th></tr></thead>
               <tbody>
-                <tr><td>#89</td><td>12 qubits, 1.2k gates</td><td>~$0.04</td><td><span class="mock-badge ok">Pass</span></td></tr>
-                <tr><td>#88</td><td>8 qubits, 450 gates</td><td>~$0.01</td><td><span class="mock-badge ok">Pass</span></td></tr>
-                <tr><td>#87</td><td>20 qubits, 8k gates</td><td>~$2.10</td><td><span class="mock-badge warn">Blocked</span></td></tr>
+                <tr><td>1fgtt-6</td><td>12 qubits, 1.2k gates, depth 9.6k, 2k shots</td><td>~$0.04</td><td><span class="mock-badge ok">Pass</span></td></tr>
+                <tr><td>8kpwz-1</td><td>8 qubits, 450 gates, depth 3.4k, 1k shots</td><td>~$0.01</td><td><span class="mock-badge ok">Pass</span></td></tr>
+                <tr><td>0nqv3-9</td><td>20 qubits, 8k gates, depth 12.8k, 4k shots</td><td>~$2.10</td><td><span class="mock-badge warn">Blocked</span></td></tr>
               </tbody>
             </table>
-            <p style="font-size:0.8rem;color:#9ca3af;margin-top:0.75rem;">Risky jobs are blocked before they reach live hardware.</p>
+            <div class="mock-card" style="margin-top:0.75rem;">
+              <h4>Block Policy</h4>
+              <pre class="mock-code">version: 1
+block_if:
+  cost_usd: &gt; 0.50
+  gate_depth: &gt; 12000
+  shots: &gt; 3000</pre>
+            </div>
           </div>
         </div>
       </div>
@@ -269,7 +352,7 @@
             <div class="nav-item">Performance</div>
           </div>
           <div>
-            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Submit to production</h4>
+            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Submit to Production</h4>
             <div class="mock-card">
               <h4>Provider</h4>
               <p>IBM Quantum · IonQ · AWS Braket (single interface)</p>
@@ -279,7 +362,22 @@
               <p>Backend: ibm_kyoto · Status: <span class="mock-badge ok">Deployed</span></p>
               <div class="mock-bar"><span style="width:100%"></span></div>
             </div>
-            <p style="font-size:0.8rem;color:#9ca3af;">Deploy across multiple providers through one interface.</p>
+            <div class="queue-viz">
+              <h4>Queue position</h4>
+              <div class="queue-line">
+                <span class="queue-slot"><span class="dot"></span>job-01</span>
+                <span class="queue-slot"><span class="dot"></span>job-02</span>
+                <span class="queue-slot"><span class="dot"></span>job-03</span>
+                <span class="queue-slot current"><span class="dot"></span>vqe-circuit-42 <span class="tag">Submitted</span></span>
+                <span class="queue-slot"><span class="dot"></span>job-05</span>
+                <span class="queue-slot"><span class="dot"></span>job-06</span>
+              </div>
+              <div class="queue-meta">
+                <span>Position: 4 of 14</span>
+                <span>ETA: ~18 min</span>
+              </div>
+            </div>
+            <br/>
           </div>
         </div>
       </div>
@@ -300,45 +398,106 @@
             <div class="nav-item">Performance</div>
           </div>
           <div>
-            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">System health & metrics</h4>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
-              <div class="obs-graph">
-                <h4>T1 / T2 (ibm_kyoto)</h4>
-                <svg viewBox="0 0 260 80" preserveAspectRatio="none">
-                  <line x1="30" y1="10" x2="30" y2="65" class="grid-line"/><line x1="80" y1="10" x2="80" y2="65" class="grid-line"/>
-                  <line x1="130" y1="10" x2="130" y2="65" class="grid-line"/><line x1="180" y1="10" x2="180" y2="65" class="grid-line"/>
-                  <line x1="230" y1="10" x2="230" y2="65" class="grid-line"/>
-                  <line x1="30" y1="65" x2="250" y2="65" class="grid-line"/>
-                  <polyline points="35,55 85,48 135,42 185,38 235,32" class="line"/>
-                  <polyline points="35,60 85,52 135,58 185,50 235,45" class="line-alt"/>
-                  <text x="35" y="72" fill="#6b7280" font-size="7">10:00</text>
-                  <text x="230" y="72" fill="#6b7280" font-size="7">14:00</text>
+            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">System Health & Metrics</h4>
+            <div class="obs-dashboard">
+              <div class="obs-section">vqe-circuit-42 | ionq_harmony </div>
+              <div class="obs-card obs-medium">
+                <div class="obs-title">Queue time</div>
+                <div class="obs-value">6.2 min</div>
+                <svg class="obs-spark" viewBox="0 0 120 42" preserveAspectRatio="none">
+                  <line x1="6" y1="8" x2="6" y2="34" class="grid"/>
+                  <line x1="6" y1="34" x2="114" y2="34" class="grid"/>
+                  <line x1="6" y1="22" x2="114" y2="22" class="grid"/>
+                  <rect x="10" y="20" width="10" height="14" class="bar"/>
+                  <rect x="26" y="18" width="10" height="16" class="bar"/>
+                  <rect x="42" y="24" width="10" height="10" class="bar"/>
+                  <rect x="58" y="16" width="10" height="18" class="bar"/>
+                  <rect x="74" y="22" width="10" height="12" class="bar"/>
+                  <rect x="90" y="14" width="10" height="20" class="bar"/>
+                  <text x="6" y="40" font-size="6" fill="#6b7280">-30m</text>
+                  <text x="98" y="40" font-size="6" fill="#6b7280">now</text>
                 </svg>
-                <p style="font-size:0.7rem;color:#6b7280;">T1 — T2</p>
+                <div class="obs-sub">current window</div>
               </div>
-              <div class="obs-graph">
-                <h4>Fidelity (ionq_harmony)</h4>
-                <svg viewBox="0 0 260 80" preserveAspectRatio="none">
-                  <line x1="30" y1="10" x2="30" y2="65" class="grid-line"/><line x1="80" y1="10" x2="80" y2="65" class="grid-line"/>
-                  <line x1="130" y1="10" x2="130" y2="65" class="grid-line"/><line x1="180" y1="10" x2="180" y2="65" class="grid-line"/>
-                  <line x1="230" y1="10" x2="230" y2="65" class="grid-line"/>
-                  <line x1="30" y1="65" x2="250" y2="65" class="grid-line"/>
-                  <rect x="40" y="45" width="28" height="20" class="bar"/><rect x="76" y="38" width="28" height="27" class="bar"/>
-                  <rect x="112" y="32" width="28" height="33" class="bar"/><rect x="148" y="28" width="28" height="37" class="bar"/>
-                  <rect x="184" y="35" width="28" height="30" class="bar"/><rect x="220" y="42" width="28" height="23" class="bar"/>
-                  <text x="35" y="72" fill="#6b7280" font-size="7">Mon</text>
-                  <text x="225" y="72" fill="#6b7280" font-size="7">Sat</text>
+              <div class="obs-card obs-medium">
+                <div class="obs-title">Queue traffic</div>
+                <div class="obs-value">148 jobs/hr</div>
+                <svg class="obs-spark" viewBox="0 0 120 42" preserveAspectRatio="none">
+                  <line x1="6" y1="8" x2="6" y2="34" class="grid"/>
+                  <line x1="6" y1="34" x2="114" y2="34" class="grid"/>
+                  <line x1="6" y1="22" x2="114" y2="22" class="grid"/>
+                  <polyline points="6,28 26,22 46,25 66,18 86,16 106,20" class="line"/>
+                  <polyline points="6,32 26,28 46,29 66,26 86,24 106,26" class="line-alt"/>
+                  <text x="6" y="40" font-size="6" fill="#6b7280">-30m</text>
+                  <text x="98" y="40" font-size="6" fill="#6b7280">now</text>
                 </svg>
-                <p style="font-size:0.7rem;color:#6b7280;">Daily avg %</p>
+                <div class="obs-sub">ingress rate</div>
               </div>
-            </div>
-            <div class="obs-graph" style="margin-top:0.5rem;">
-              <h4>Live calibration stream</h4>
-              <svg viewBox="0 0 260 50" preserveAspectRatio="none">
-                <polyline points="10,25 50,22 90,28 130,20 170,26 210,24 250,22" class="line" stroke-width="1.2"/>
-                <text x="5" y="40" fill="#6b7280" font-size="6">Real time</text>
-              </svg>
-              <p style="font-size:0.75rem;color:#9ca3af;margin-top:0.35rem;">End-to-end visibility into quantum hardware performance.</p>
+              <div class="obs-card obs-medium">
+                <div class="obs-title">Shot count efficiency</div>
+                <div class="obs-value">92%</div>
+                <svg class="obs-spark" viewBox="0 0 120 42" preserveAspectRatio="none">
+                  <line x1="6" y1="8" x2="6" y2="34" class="grid"/>
+                  <line x1="6" y1="34" x2="114" y2="34" class="grid"/>
+                  <rect x="12" y="22" width="10" height="12" class="bar-accent"/>
+                  <rect x="30" y="18" width="10" height="16" class="bar-accent"/>
+                  <rect x="48" y="16" width="10" height="18" class="bar-accent"/>
+                  <rect x="66" y="12" width="10" height="22" class="bar-accent"/>
+                  <rect x="84" y="14" width="10" height="20" class="bar-accent"/>
+                  <rect x="102" y="16" width="10" height="18" class="bar-accent"/>
+                </svg>
+                <div class="obs-sub">shots used vs planned</div>
+              </div>
+
+              <div class="obs-card obs-medium obs-compact">
+                <div class="obs-title">Optimization stack</div>
+                <div class="obs-kpi-row">
+                  <div class="obs-kpi">Convergence <span>48 iters</span></div>
+                  <div class="obs-kpi">Preprocess <span>72 ms</span></div>
+                  <div class="obs-kpi">GPU offload <span>61%</span></div>
+                </div>
+              </div>
+              <div class="obs-card obs-medium">
+                <div class="obs-title">T1 / T2 lifetime</div>
+                <div class="obs-value">118 / 92 µs</div>
+                <svg class="obs-spark" viewBox="0 0 120 42" preserveAspectRatio="none">
+                  <line x1="6" y1="8" x2="6" y2="34" class="grid"/>
+                  <line x1="6" y1="34" x2="114" y2="34" class="grid"/>
+                  <line x1="6" y1="22" x2="114" y2="22" class="grid"/>
+                  <polyline points="6,28 26,26 46,24 66,22 86,20 106,18" class="line"/>
+                  <polyline points="6,31 26,29 46,27 66,25 86,24 106,23" class="line-alt"/>
+                  <text x="6" y="40" font-size="6" fill="#6b7280">µs</text>
+                </svg>
+                <div class="obs-sub">ibm_kyoto</div>
+              </div>
+              <div class="obs-card obs-mini">
+                <div class="obs-title">Gate fidelity</div>
+                <div class="obs-value">99.3%</div>
+                <svg class="obs-spark" viewBox="0 0 120 42" preserveAspectRatio="none">
+                  <line x1="6" y1="8" x2="6" y2="34" class="grid"/>
+                  <line x1="6" y1="34" x2="114" y2="34" class="grid"/>
+                  <polyline points="6,24 26,22 46,20 66,19 86,18 106,18" class="line"/>
+                  <polyline points="6,26 26,24 46,23 66,22 86,21 106,21" class="line-alt"/>
+                </svg>
+              </div>
+              <div class="obs-card obs-mini">
+                <div class="obs-title">Readout error</div>
+                <div class="obs-value">1.9%</div>
+                <svg class="obs-spark" viewBox="0 0 120 42" preserveAspectRatio="none">
+                  <line x1="6" y1="8" x2="6" y2="34" class="grid"/>
+                  <line x1="6" y1="34" x2="114" y2="34" class="grid"/>
+                  <polyline points="6,20 26,22 46,24 66,23 86,22 106,21" class="line-alt"/>
+                  <polyline points="6,16 26,18 46,19 66,18 86,17 106,17" class="line"/>
+                </svg>
+              </div>
+              <div class="obs-logs">
+                <h4>Caliqo Logs</h4>
+                <pre><span class="ts">14:22:04</span> [compile-daemon] cache hit: vqe-circuit-42 @ ibm_kyoto <span class="ok">OK</span>
+<span class="ts">14:22:07</span> [router] queue depth=6, eta=18m, policy=min-latency
+<span class="ts">14:22:11</span> [qpu-probe] t1=118µs t2=92µs drift=0.06% <span class="ok">OK</span>
+<span class="ts">14:22:13</span> [shots-planner] target=2000, effective=1840 <span class="warn">WARN</span>
+<span class="ts">14:22:16</span> [verifier] depth=9600 max=12000 gate_set=rz,sx,cx <span class="ok">OK</span></pre>
+              </div>
             </div>
           </div>
         </div>
@@ -360,17 +519,26 @@
             <div class="nav-item active">Performance</div>
           </div>
           <div>
-            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Backend performance</h4>
-            <table class="mock-table">
-              <thead><tr><th>Backend</th><th>Benchmark</th><th>Trend</th><th>Recommendation</th></tr></thead>
-              <tbody>
-                <tr><td>ibm_kyoto</td><td>98.1%</td><td><span class="mock-badge ok">Stable</span></td><td>—</td></tr>
-                <tr><td>ionq_harmony</td><td>97.3%</td><td><span class="mock-badge warn">-0.2%</span></td><td>Consider delay 2h</td></tr>
-              </tbody>
-            </table>
+            <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Job Results: vqe-circuit-42</h4>
+            <div class="mock-card">
+              <h4>Result summary</h4>
+              <p>Backend: ibm_kyoto · Fidelity: 0.982 · Error rate: 1.4% · Runtime: 3m 12s</p>
+              <p>Energy estimate: -1.137 Ha · CI stability: 99.1%</p>
+            </div>
+            <div class="mock-card">
+              <h4>Benchmark across runs</h4>
+              <table class="mock-table">
+                <thead><tr><th>Run</th><th>Fidelity</th><th>Energy</th><th>Runtime</th><th>Delta</th></tr></thead>
+                <tbody>
+                  <tr><td>1fgtt-6</td><td>0.982</td><td>-1.137</td><td>3m 12s</td><td><span class="mock-badge ok">+2.4%</span></td></tr>
+                  <tr><td>8kpwz-1</td><td>0.971</td><td>-1.129</td><td>3m 46s</td><td><span class="mock-badge ok">+1.1%</span></td></tr>
+                  <tr><td>0nqv3-9</td><td>0.944</td><td>-1.102</td><td>5m 08s</td><td><span class="mock-badge warn">-2.8%</span></td></tr>
+                </tbody>
+              </table>
+            </div>
             <div class="mock-card" style="margin-top:0.75rem;">
-              <h4>Auto recommendations</h4>
-              <p>Continuously benchmark and recommend workload optimizations for consistency and accuracy.</p>
+              <h4>Recommendation</h4>
+              <p>Pin runs to ibm_kyoto calibration window 14:00–16:00 UTC and reduce shots to 2k; keep transpile pass at O3 to hold fidelity &gt;0.98 while cutting runtime ~18%.</p>
             </div>
           </div>
         </div>

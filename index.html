@@ -125,17 +125,36 @@
     }
 
     .btn-demo:hover {
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.7);
-      background: rgba(255, 255, 255, 0.06);
+      color: #c95410;
+      font-weight: 700;
+      border-color: #c95410;
+      background: transparent;
     }
 
     .footer-cta {
-      padding: 4rem 2rem 3rem;
+      padding: 4rem 2rem 3.5rem;
       text-align: center;
       background: var(--bg-dark);
       position: relative;
       z-index: 0;
+    }
+
+    .footer-cta .footer-cta-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 400;
+      color: #f0f0f0;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-cta .footer-cta-sub {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+      color: var(--text-secondary);
+      line-height: 1.5;
+      max-width: 36rem;
+      margin: 0 auto 1.75rem;
     }
 
     .footer-cta .btn-demo {
@@ -183,6 +202,12 @@
       color: var(--text-secondary);
       letter-spacing: 0.01em;
       line-height: 1.5;
+      margin-bottom: 2.25rem;
+    }
+
+    .content .btn-demo {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
     }
 
     .about-inner {
@@ -436,13 +461,13 @@
       <img src="/caliqo_logo.png" alt="caliqo" class="logo" />
       <span class="brand">caliqo</span>
     </div>
-    <a href="/demo.html" class="btn-demo">Request a demo</a>
   </header>
   <section class="hero" id="hero">
     <canvas id="bg" aria-hidden="true"></canvas>
     <main class="content">
       <h1 class="headline">Making quantum software production-ready.</h1>
       <p class="subtext">The first DevOps layer for quantum computing.</p>
+      <a href="/waitlist.html" class="btn-demo">Join the waitlist</a>
     </main>
   </section>
   <div class="scroll-content about" id="about">
@@ -785,7 +810,9 @@ block_if:
     </section>
 
     <footer class="footer-cta">
-      <a href="/demo.html" class="btn-demo">Request a demo</a>
+      <h2 class="footer-cta-title">Get started with Caliqo</h2>
+      <p class="footer-cta-sub">Standardize and scale quantum deployment across hardware providers.</p>
+      <a href="/waitlist.html" class="btn-demo">Join the waitlist</a>
     </footer>
   </div>
   <script type="module" src="/src/main.js"></script>

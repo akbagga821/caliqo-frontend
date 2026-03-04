@@ -131,9 +131,11 @@
     }
 
     .footer-cta {
-      padding: 4rem 2rem;
+      padding: 4rem 2rem 3rem;
       text-align: center;
       background: var(--bg-dark);
+      position: relative;
+      z-index: 0;
     }
 
     .footer-cta .btn-demo {
@@ -190,7 +192,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
       align-items: stretch;
-      padding: 3rem 2.5rem;
+      padding: 2.5rem 2.5rem 1.5rem;
       background: var(--bg-dark);
     }
 
@@ -264,17 +266,28 @@
     }
 
     .feature {
-      min-height: 82vh;
+      min-height: 0;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.25rem;
       align-items: center;
-      padding: 3rem 2.5rem;
+      padding: 4rem 2.5rem 3rem;
       background: var(--bg-dark);
+      overflow: visible;
+    }
+
+    .feature:first-of-type {
+      padding-top: 2rem;
     }
 
     .feature.feature-alt {
       direction: rtl;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    /* Infrastructure Observability: narrower screenshot */
+    .feature:nth-of-type(5) {
+      grid-template-columns: 0.85fr 1.15fr;
     }
 
     .feature.feature-alt > * {
@@ -282,20 +295,109 @@
     }
 
     .feature-slot {
-      min-height: 40vh;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px dashed rgba(255, 255, 255, 0.12);
-      border-radius: 8px;
+      overflow: visible;
+    }
+    .feature-slot .screenshot-frame {
+      width: 100%;
+      background: #111318;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 1;
+    }
+    .feature:nth-of-type(1) .screenshot-frame { margin-bottom: -3.5rem; }
+    .feature:nth-of-type(2) .screenshot-frame { margin-bottom: -3.5rem; }
+    .feature:nth-of-type(3) .screenshot-frame { margin-bottom: -3.5rem; }
+    .feature:nth-of-type(4) .screenshot-frame { margin-bottom: -3.5rem; }
+    .feature:nth-of-type(5) .screenshot-frame { margin-bottom: -2rem; }
+    .feature:nth-of-type(6) .screenshot-frame { margin-bottom: -3.5rem; }
+    .feature-slot .window-bar {
+      background: #1a1c22;
+      padding: 0.6rem 1rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
+    .feature-slot .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .feature-slot .dot.r { background: #ff5f57; }
+    .feature-slot .dot.y { background: #febc2e; }
+    .feature-slot .dot.g { background: #28c840; }
+    .feature-slot .window-title { flex: 1; text-align: center; font-size: 0.75rem; color: #6b7280; }
+    .feature-slot .screenshot-body { padding: 1.25rem; min-height: 280px; }
+    .feature-slot .mock-grid { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; }
+    .feature-slot .mock-sidebar {
+      width: 180px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 6px;
+      padding: 0.75rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    .feature-slot .mock-sidebar .nav-item { padding: 0.4rem 0.5rem; border-radius: 4px; margin-bottom: 0.2rem; }
+    .feature-slot .mock-sidebar .nav-item.active { background: rgba(201,84,16,0.2); color: #f0f0f0; }
+    .feature-slot .mock-table { width: 100%; font-size: 0.8rem; border-collapse: collapse; }
+    .feature-slot .mock-table th, .feature-slot .mock-table td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); color: #d1d5db; }
+    .feature-slot .mock-table th { color: #9ca3af; font-weight: 500; }
+    .feature-slot .mock-table .row-active td { background: rgba(201,84,16,0.12); border-top: 1px solid rgba(201,84,16,0.45); border-bottom: 1px solid rgba(201,84,16,0.45); }
+    .feature-slot .mock-table .row-active td:first-child { border-left: 1px solid rgba(201,84,16,0.45); border-radius: 6px 0 0 6px; }
+    .feature-slot .mock-table .row-active td:last-child { border-right: 1px solid rgba(201,84,16,0.45); border-radius: 0 6px 6px 0; }
+    .feature-slot .mock-badge { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.7rem; }
+    .feature-slot .mock-badge.ok { background: rgba(40,200,64,0.2); color: #4ade80; }
+    .feature-slot .mock-badge.warn { background: rgba(254,188,46,0.2); color: #facc15; }
+    .feature-slot .mock-card { background: rgba(255,255,255,0.05); border-radius: 6px; padding: 1rem; margin-bottom: 0.75rem; }
+    .feature-slot .mock-card h4 { font-size: 0.85rem; color: #f0f0f0; margin-bottom: 0.5rem; font-weight: 500; }
+    .feature-slot .mock-card p, .feature-slot .mock-card pre { font-size: 0.75rem; color: #9ca3af; }
+    .feature-slot .mock-code { color: #9cc9ff; background: #0d0e12; padding: 0.75rem; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 0.7rem; overflow-x: auto; }
+    .feature-slot .mock-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; margin-top: 0.4rem; }
+    .feature-slot .mock-bar span { display: block; height: 100%; background: #c95410; border-radius: 3px; }
+    .feature-slot .yaml-panel { background: rgba(10,11,14,0.9); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.85rem; margin: 0.75rem 0; }
+    .feature-slot .yaml-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; color: #e5e7eb; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .feature-slot .yaml-header .label, .feature-slot .yaml-header .icon { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; }
+    .feature-slot .yaml-header .icon { width: 18px; height: 18px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); font-size: 0.65rem; color: #9ca3af; }
+    .feature-slot .yaml-body { background: #0b0d12; border-radius: 8px; padding: 0.75rem; font-family: ui-monospace, monospace; font-size: 0.68rem; color: #e5e7eb; }
+    .feature-slot .yaml-body .key { color: #9cc9ff; }
+    .feature-slot .yaml-body .str { color: #88d8a8; }
+    .feature-slot .yaml-body .num { color: #f8c05a; }
+    .feature-slot .queue-viz { background: rgba(255,255,255,0.05); border-radius: 6px; padding: 0.75rem 0.9rem; margin-top: 0.75rem; }
+    .feature-slot .queue-viz h4 { font-size: 0.8rem; color: #f0f0f0; margin-bottom: 0.45rem; font-weight: 500; }
+    .feature-slot .queue-line { display: flex; align-items: center; gap: 0.35rem; margin: 0.35rem 0 0.6rem; flex-wrap: wrap; }
+    .feature-slot .queue-slot { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.55rem; border-radius: 999px; background: rgba(255,255,255,0.06); color: #9ca3af; font-size: 0.7rem; border: 1px solid rgba(255,255,255,0.08); }
+    .feature-slot .queue-slot .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.35); }
+    .feature-slot .queue-slot.current { color: #f0f0f0; background: rgba(201,84,16,0.2); border-color: rgba(201,84,16,0.6); }
+    .feature-slot .queue-slot.current .dot { background: #c95410; box-shadow: 0 0 0 3px rgba(201,84,16,0.25); }
+    .feature-slot .queue-slot .tag { font-size: 0.65rem; padding: 0.1rem 0.35rem; border-radius: 999px; background: rgba(255,255,255,0.08); color: #cbd5f5; }
+    .feature-slot .queue-meta { display: flex; justify-content: space-between; font-size: 0.7rem; color: #9ca3af; }
+    .feature-slot .obs-layout { display: grid; grid-template-columns: 1fr 200px; gap: 1rem; align-items: start; }
+    .feature-slot .obs-charts { display: flex; flex-direction: column; gap: 0.75rem; }
+    .feature-slot .obs-panel { background: rgba(15,16,20,0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.6rem 0.75rem; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03); }
+    .feature-slot .obs-panel .obs-title { font-size: 0.65rem; color: #cbd5f5; margin-bottom: 0.2rem; font-weight: 500; letter-spacing: 0.02em; }
+    .feature-slot .obs-panel .obs-value { font-size: 0.9rem; color: #f0f0f0; font-weight: 600; margin-bottom: 0.25rem; }
+    .feature-slot .obs-panel .obs-sub { font-size: 0.6rem; color: #9ca3af; }
+    .feature-slot .obs-panel .obs-spark { width: 100%; height: 38px; display: block; margin: 0.25rem 0 0; }
+    .feature-slot .obs-aside { display: flex; flex-direction: column; gap: 0.6rem; }
+    .feature-slot .obs-kpi-list { background: rgba(15,16,20,0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.5rem 0.6rem; }
+    .feature-slot .obs-kpi-list .obs-title { font-size: 0.6rem; color: #cbd5f5; margin-bottom: 0.35rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; }
+    .feature-slot .obs-kpi-item { display: flex; justify-content: space-between; align-items: baseline; padding: 0.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.7rem; }
+    .feature-slot .obs-kpi-item:last-child { border-bottom: none; }
+    .feature-slot .obs-kpi-item .label { color: #9ca3af; }
+    .feature-slot .obs-kpi-item .val { color: #f0f0f0; font-weight: 600; }
+    .feature-slot .obs-section { padding: 0.25rem 0.4rem; border-radius: 6px; background: rgba(255,255,255,0.04); color: #cbd5f5; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .feature-slot .obs-logs { background: rgba(10,11,14,0.95); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.6rem 0.75rem; }
+    .feature-slot .obs-logs h4 { font-size: 0.7rem; color: #cbd5f5; margin-bottom: 0.45rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .feature-slot .obs-logs pre { margin: 0; font-family: ui-monospace, monospace; font-size: 0.65rem; color: #9cc9ff; line-height: 1.5; max-height: 120px; overflow: hidden; }
+    .feature-slot .obs-logs .ts { color: #6b7280; }
+    .feature-slot .obs-logs .ok { color: #4ade80; }
+    .feature-slot .obs-logs .warn { color: #facc15; }
+    .feature-slot .obs-spark .grid { stroke: rgba(255,255,255,0.06); stroke-width: 0.5; }
+    .feature-slot .obs-spark .line { fill: none; stroke: #c95410; stroke-width: 1.6; }
+    .feature-slot .obs-spark .line-alt { fill: none; stroke: #7c9ce0; stroke-width: 1.4; }
 
     .feature-content {
       padding: 1rem 0;
-      max-width: 32rem;
+      max-width: 26rem;
       margin: 0 auto;
       text-align: left;
     }
@@ -334,7 +436,6 @@
       <img src="/caliqo_logo.png" alt="caliqo" class="logo" />
       <span class="brand">caliqo</span>
     </div>
-    <a href="/screenshots.html" class="btn-demo" target="_blank" rel="noopener">Screenshots</a>
     <a href="/demo.html" class="btn-demo">Request a demo</a>
   </header>
   <section class="hero" id="hero">
@@ -358,7 +459,41 @@
     </div>
 
     <section class="feature">
-      <div class="feature-slot">Screenshot</div>
+      <div class="feature-slot">
+        <div class="screenshot-frame">
+          <div class="window-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">Caliqo — Scheduling</span></div>
+          <div class="screenshot-body">
+            <div class="mock-grid">
+              <div class="mock-sidebar">
+                <div class="nav-item">Dashboard</div>
+                <div class="nav-item active">Scheduling</div>
+                <div class="nav-item">Compilation</div>
+                <div class="nav-item">CI / CD</div>
+                <div class="nav-item">Observability</div>
+                <div class="nav-item">Performance</div>
+              </div>
+              <div>
+                <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Workload Queue & Policy</h4>
+                <table class="mock-table">
+                  <thead><tr><th>Job</th><th>Backend</th><th>Policy</th><th>Status</th></tr></thead>
+                  <tbody>
+                    <tr class="row-active"><td>vqe-circuit-42</td><td>ibm_kyoto</td><td>min-latency</td><td><span class="mock-badge ok">Routed</span></td></tr>
+                    <tr><td>qaoa-opt-17</td><td>ionq_harmony</td><td>max-fidelity</td><td><span class="mock-badge ok">Routed</span></td></tr>
+                    <tr><td>shor-n-143</td><td>—</td><td>cost-aware</td><td><span class="mock-badge warn">Queued</span></td></tr>
+                    <tr><td>chem-sim-08</td><td>qci_phoenix</td><td>throughput</td><td><span class="mock-badge ok">Routed</span></td></tr>
+                    <tr><td>grover-64q</td><td>simulon_gaussian</td><td>max-fidelity</td><td><span class="mock-badge warn">Queued</span></td></tr>
+                  </tbody>
+                </table>
+                <div class="mock-card" style="margin-top:1rem;">
+                  <h4>Active policy: min-latency</h4>
+                  <h4>Chosen processor: ibm_kyoto</h4>
+                  <p>127 qubits · Status: Calibrating · Type: Superconducting · Pending jobs: 14</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="feature-content">
         <h3 class="feature-title">Policy-Driven Scheduling</h3>
         <p class="feature-desc">Automatically route quantum workloads to the optimal QPU, taking into account backend performance and current hardware conditions in real time.</p>
@@ -366,7 +501,56 @@
     </section>
 
     <section class="feature feature-alt">
-      <div class="feature-slot">Screenshot</div>
+      <div class="feature-slot">
+        <div class="screenshot-frame">
+          <div class="window-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">Caliqo — Compilation pipeline</span></div>
+          <div class="screenshot-body">
+            <div class="mock-grid">
+              <div class="mock-sidebar">
+                <div class="nav-item">Dashboard</div>
+                <div class="nav-item">Scheduling</div>
+                <div class="nav-item active">Compilation</div>
+                <div class="nav-item">CI / CD</div>
+                <div class="nav-item">Observability</div>
+                <div class="nav-item">Performance</div>
+              </div>
+              <div>
+                <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Compilation and Optimization</h4>
+                <div class="yaml-panel">
+                  <div class="yaml-header">
+                    <div class="label"><span class="icon">{ }</span> Pipeline YAML · quantum compile</div>
+                    <div class="icon">⧉</div>
+                  </div>
+                  <div class="yaml-body">
+                    <span class="key">trigger</span>:<br/>
+                    - <span class="str">quantum/main</span><br/><br/>
+                    <span class="key">pool</span>:<br/>
+                    &nbsp;&nbsp;<span class="key">vmImage</span>: <span class="str">'cuda-12-quantum'</span><br/><br/>
+                    <span class="key">steps</span>:<br/>
+                    - <span class="key">task</span>: <span class="str">qpu-compile@3</span><br/>
+                    &nbsp;&nbsp;<span class="key">displayName</span>: <span class="str">Compile circuit (native gates)</span><br/>
+                    &nbsp;&nbsp;<span class="key">inputs</span>:<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">backend</span>: <span class="str">ibm_kyoto</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">optimizationLevel</span>: <span class="num">3</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">shots</span>: <span class="num">2000</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">seed</span>: <span class="num">42</span><br/>
+                    - <span class="key">task</span>: <span class="str">qpu-verify@2</span><br/>
+                    &nbsp;&nbsp;<span class="key">displayName</span>: <span class="str">Validate depth &amp; error budget</span><br/>
+                    &nbsp;&nbsp;<span class="key">inputs</span>:<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">maxDepth</span>: <span class="num">12000</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">maxError</span>: <span class="num">0.02</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">gateSet</span>: <span class="str">['rz','sx','cx']</span><br/>
+                  </div>
+                </div>
+                <div class="mock-card">
+                  <h4>Target: ibm_kyoto · Optimized depth: 12</h4>
+                  <p>Deployment-ready artifact built for this QPU. Passes CI checks.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="feature-content">
         <h3 class="feature-title">Hardware-Aware Compilation</h3>
         <p class="feature-desc">Compile and optimize quantum circuits directly within your CI workflow, producing deployment-ready artifacts tailored to specific QPU backends.</p>
@@ -374,7 +558,42 @@
     </section>
 
     <section class="feature">
-      <div class="feature-slot">Screenshot</div>
+      <div class="feature-slot">
+        <div class="screenshot-frame">
+          <div class="window-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">Caliqo — CI pipeline</span></div>
+          <div class="screenshot-body">
+            <div class="mock-grid">
+              <div class="mock-sidebar">
+                <div class="nav-item">Dashboard</div>
+                <div class="nav-item">Scheduling</div>
+                <div class="nav-item">Compilation</div>
+                <div class="nav-item active">CI / CD</div>
+                <div class="nav-item">Observability</div>
+                <div class="nav-item">Performance</div>
+              </div>
+              <div>
+                <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Latest Jobs</h4>
+                <table class="mock-table">
+                  <thead><tr><th>Job</th><th>Resource est.</th><th>Cost est.</th><th>Result</th></tr></thead>
+                  <tbody>
+                    <tr><td>1fgtt-6</td><td>12 qubits, 1.2k gates, depth 9.6k, 2k shots</td><td>~$0.04</td><td><span class="mock-badge ok">Pass</span></td></tr>
+                    <tr><td>8kpwz-1</td><td>8 qubits, 450 gates, depth 3.4k, 1k shots</td><td>~$0.01</td><td><span class="mock-badge ok">Pass</span></td></tr>
+                    <tr><td>0nqv3-9</td><td>20 qubits, 8k gates, depth 12.8k, 4k shots</td><td>~$2.10</td><td><span class="mock-badge warn">Blocked</span></td></tr>
+                  </tbody>
+                </table>
+                <div class="mock-card" style="margin-top:0.75rem;">
+                  <h4>Block Policy</h4>
+                  <pre class="mock-code">version: 1
+block_if:
+  cost_usd: &gt; 0.50
+  gate_depth: &gt; 12000
+  shots: &gt; 3000</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="feature-content">
         <h3 class="feature-title">Continuous Integration (CI)</h3>
         <p class="feature-desc">Automate resource and cost estimation tests, blocking risky jobs before they reach live hardware, saving time and money.</p>
@@ -382,7 +601,50 @@
     </section>
 
     <section class="feature feature-alt">
-      <div class="feature-slot">Screenshot</div>
+      <div class="feature-slot">
+        <div class="screenshot-frame">
+          <div class="window-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">Caliqo — Deploy</span></div>
+          <div class="screenshot-body">
+            <div class="mock-grid">
+              <div class="mock-sidebar">
+                <div class="nav-item">Dashboard</div>
+                <div class="nav-item">Scheduling</div>
+                <div class="nav-item">Compilation</div>
+                <div class="nav-item active">CI / CD</div>
+                <div class="nav-item">Observability</div>
+                <div class="nav-item">Performance</div>
+              </div>
+              <div>
+                <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Submit to Production</h4>
+                <div class="mock-card">
+                  <h4>Provider</h4>
+                  <p>IBM Quantum · IonQ · AWS Braket (single interface)</p>
+                </div>
+                <div class="mock-card">
+                  <h4>Job: vqe-circuit-42</h4>
+                  <p>Backend: ibm_kyoto · Status: <span class="mock-badge ok">Deployed</span></p>
+                  <div class="mock-bar"><span style="width:100%"></span></div>
+                </div>
+                <div class="queue-viz">
+                  <h4>Queue position</h4>
+                  <div class="queue-line">
+                    <span class="queue-slot"><span class="dot"></span>job-01</span>
+                    <span class="queue-slot"><span class="dot"></span>job-02</span>
+                    <span class="queue-slot"><span class="dot"></span>job-03</span>
+                    <span class="queue-slot current"><span class="dot"></span>vqe-circuit-42 <span class="tag">Submitted</span></span>
+                    <span class="queue-slot"><span class="dot"></span>job-05</span>
+                    <span class="queue-slot"><span class="dot"></span>job-06</span>
+                  </div>
+                  <div class="queue-meta">
+                    <span>Position: 4 of 14</span>
+                    <span>ETA: ~18 min</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="feature-content">
         <h3 class="feature-title">Continuous Deployment (CD)</h3>
         <p class="feature-desc">Submit and deploy quantum jobs to production across multiple providers through a single interface, simplifying multi-backend operations.</p>
@@ -390,7 +652,85 @@
     </section>
 
     <section class="feature">
-      <div class="feature-slot">Screenshot</div>
+      <div class="feature-slot">
+        <div class="screenshot-frame">
+          <div class="window-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">Caliqo — Observability</span></div>
+          <div class="screenshot-body">
+            <div class="mock-grid">
+              <div class="mock-sidebar">
+                <div class="nav-item">Dashboard</div>
+                <div class="nav-item">Scheduling</div>
+                <div class="nav-item">Compilation</div>
+                <div class="nav-item">CI / CD</div>
+                <div class="nav-item active">Observability</div>
+                <div class="nav-item">Performance</div>
+              </div>
+              <div>
+                <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">System Health & Metrics</h4>
+                <div class="obs-section" style="grid-column: none;">vqe-circuit-42 | ionq_harmony</div>
+                <div class="obs-layout">
+                  <div class="obs-charts">
+                    <div class="obs-panel">
+                      <div class="obs-title">Queue traffic</div>
+                      <div class="obs-value">148 jobs/hr</div>
+                      <svg class="obs-spark" viewBox="0 0 120 42" preserveAspectRatio="none">
+                        <line x1="6" y1="8" x2="6" y2="34" class="grid"/>
+                        <line x1="6" y1="34" x2="114" y2="34" class="grid"/>
+                        <line x1="6" y1="22" x2="114" y2="22" class="grid"/>
+                        <polyline points="6,28 26,22 46,25 66,18 86,16 106,20" class="line"/>
+                        <polyline points="6,32 26,28 46,29 66,26 86,24 106,26" class="line-alt"/>
+                      </svg>
+                      <div class="obs-sub">ingress rate</div>
+                    </div>
+                    <div class="obs-panel">
+                      <div class="obs-title">T1 / T2 lifetime</div>
+                      <div class="obs-value">118 / 92 µs</div>
+                      <svg class="obs-spark" viewBox="0 0 120 42" preserveAspectRatio="none">
+                        <line x1="6" y1="8" x2="6" y2="34" class="grid"/>
+                        <line x1="6" y1="34" x2="114" y2="34" class="grid"/>
+                        <line x1="6" y1="22" x2="114" y2="22" class="grid"/>
+                        <polyline points="6,28 26,26 46,24 66,22 86,20 106,18" class="line"/>
+                        <polyline points="6,31 26,29 46,27 66,25 86,24 106,23" class="line-alt"/>
+                      </svg>
+                      <div class="obs-sub">ibm_kyoto</div>
+                    </div>
+                    <div class="obs-logs">
+                      <h4>Caliqo Logs</h4>
+                      <pre><span class="ts">14:22:04</span> [compile-daemon] cache hit: vqe-circuit-42 @ ibm_kyoto <span class="ok">OK</span>
+<span class="ts">14:22:07</span> [router] queue depth=6, eta=18m, policy=min-latency
+<span class="ts">14:22:11</span> [qpu-probe] t1=118µs t2=92µs drift=0.06% <span class="ok">OK</span>
+<span class="ts">14:22:13</span> [shots-planner] target=2000, effective=1840 <span class="warn">WARN</span>
+<span class="ts">14:22:16</span> [verifier] depth=9600 max=12000 gate_set=rz,sx,cx <span class="ok">OK</span></pre>
+                    </div>
+                  </div>
+                  <div class="obs-aside">
+                    <div class="obs-kpi-list">
+                      <div class="obs-title">Summary</div>
+                      <div class="obs-kpi-item"><span class="label">Readout error</span><span class="val">1.9%</span></div>
+                      <div class="obs-kpi-item"><span class="label">Shot efficiency</span><span class="val">92%</span></div>
+                      <div class="obs-kpi-item"><span class="label">Convergence</span><span class="val">48 iters</span></div>
+                      <div class="obs-kpi-item"><span class="label">Preprocess</span><span class="val">72 ms</span></div>
+                      <div class="obs-kpi-item"><span class="label">GPU offload</span><span class="val">61%</span></div>
+                    </div>
+                    <div class="obs-panel">
+                      <div class="obs-title">Gate fidelity</div>
+                      <div class="obs-value">99.3%</div>
+                      <svg class="obs-spark" viewBox="0 0 120 42" preserveAspectRatio="none">
+                        <line x1="6" y1="8" x2="6" y2="34" class="grid"/>
+                        <line x1="6" y1="34" x2="114" y2="34" class="grid"/>
+                        <line x1="6" y1="22" x2="114" y2="22" class="grid"/>
+                        <polyline points="6,24 26,22 46,20 66,19 86,18 106,18" class="line"/>
+                        <polyline points="6,26 26,24 46,23 66,22 86,21 106,21" class="line-alt"/>
+                      </svg>
+                      <div class="obs-sub">1Q · 2Q (ibm_kyoto)</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="feature-content">
         <h3 class="feature-title">Infrastructure Observability</h3>
         <p class="feature-desc">Stream live calibration data and runtime metrics to monitor system health, providing end-to-end visibility into quantum hardware performance.</p>
@@ -398,7 +738,46 @@
     </section>
 
     <section class="feature feature-alt">
-      <div class="feature-slot">Screenshot</div>
+      <div class="feature-slot">
+        <div class="screenshot-frame">
+          <div class="window-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">Caliqo — Performance</span></div>
+          <div class="screenshot-body">
+            <div class="mock-grid">
+              <div class="mock-sidebar">
+                <div class="nav-item">Dashboard</div>
+                <div class="nav-item">Scheduling</div>
+                <div class="nav-item">Compilation</div>
+                <div class="nav-item">CI / CD</div>
+                <div class="nav-item">Observability</div>
+                <div class="nav-item active">Performance</div>
+              </div>
+              <div>
+                <h4 style="font-size:0.95rem;margin-bottom:0.75rem;color:#f0f0f0;">Job Results: vqe-circuit-42</h4>
+                <div class="mock-card">
+                  <h4>Result summary</h4>
+                  <p>Backend: ibm_kyoto · Fidelity: 0.982 · Error rate: 1.4% · Runtime: 3m 12s</p>
+                  <p>Energy estimate: -1.137 Ha · CI stability: 99.1%</p>
+                </div>
+                <div class="mock-card">
+                  <h4>Benchmark across runs</h4>
+                  <table class="mock-table">
+                    <thead><tr><th>Run</th><th>Fidelity</th><th>Energy</th><th>Runtime</th><th>Delta</th></tr></thead>
+                    <tbody>
+                      <tr><td>1fgtt-6</td><td>0.982</td><td>-1.137</td><td>3m 12s</td><td><span class="mock-badge ok">+2.4%</span></td></tr>
+                      <tr><td>8kpwz-1</td><td>0.971</td><td>-1.129</td><td>3m 46s</td><td><span class="mock-badge ok">+1.1%</span></td></tr>
+                      <tr><td>0nqv3-9</td><td>0.944</td><td>-1.102</td><td>5m 08s</td><td><span class="mock-badge warn">-2.8%</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="mock-card" style="margin-top:0.75rem;">
+                  <h4>Recommendation</h4>
+                  <p>Pin runs to ibm_kyoto calibration window 14:00–16:00 UTC and reduce shots to 2k; keep transpile pass at O3 to hold fidelity &gt;0.98 while cutting runtime ~18%.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="feature-content">
         <h3 class="feature-title">Performance Monitoring</h3>
         <p class="feature-desc">Continuously benchmark backend performance and recommend workload optimizations automatically to ensure consistency and accuracy.</p>

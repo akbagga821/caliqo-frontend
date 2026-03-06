@@ -213,9 +213,10 @@ init();
     updateHeaderSolid();
   }, { passive: false });
 
-  // Touch: so the “scroll to reveal” works on mobile (no wheel events)
+  // Touch: “scroll to reveal” on hero, and “scroll back to landing” when at top of about
   const touchStep = 0.015;
   const touchThreshold = 8;
+  let aboutTouchStartY = 0;
   hero.addEventListener('touchstart', (e) => {
     if (e.touches.length === 1) touchStartY = e.touches[0].clientY;
   }, { passive: true });
@@ -229,6 +230,19 @@ init();
     if (progress < 0.5 || (about.scrollTop <= 0 && progress >= 0.5)) {
       e.preventDefault();
     }
+  }, { passive: false });
+  about.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) aboutTouchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  about.addEventListener('touchmove', (e) => {
+    if (e.touches.length !== 1 || progress < 0.5) return;
+    if (about.scrollTop > 0) return;
+    const y = e.touches[0].clientY;
+    const deltaY = aboutTouchStartY - y;
+    if (deltaY > -touchThreshold) return;
+    aboutTouchStartY = y;
+    applyDelta(deltaY);
+    e.preventDefault();
   }, { passive: false });
 
   const header = document.querySelector('.header');

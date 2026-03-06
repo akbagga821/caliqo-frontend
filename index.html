@@ -469,39 +469,58 @@
 
     @media (max-width: 720px) {
       .feature {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         padding: 2rem 1rem 2.5rem;
       }
       .feature.feature-alt {
         direction: ltr;
       }
-      /* No overlapping screenshots on small screens */
+      .feature-slot {
+        order: 1;
+      }
+      .feature-content {
+        order: 2;
+        padding: 0.75rem 0;
+      }
+      /* Same-size screenshot frames, fit to phone */
       .feature .screenshot-frame {
         margin-bottom: 0 !important;
       }
       .feature-slot .screenshot-frame {
+        width: 100%;
         max-width: 100%;
+        aspect-ratio: 4/3;
+        max-height: 52vh;
+        position: relative;
         border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
-      .feature-slot .screenshot-body {
-        padding: 0.75rem;
+      .feature-slot .screenshot-frame .window-bar {
+        flex-shrink: 0;
+      }
+      .feature-slot .screenshot-frame .screenshot-body {
+        flex: 1;
+        padding: 0.5rem;
         min-height: 0;
-        overflow-x: auto;
+        overflow: auto;
         -webkit-overflow-scrolling: touch;
       }
       .feature-slot .mock-grid {
         grid-template-columns: 1fr;
-        gap: 0.6rem;
+        gap: 0.5rem;
       }
       .feature-slot .mock-sidebar {
         width: 100%;
-        padding: 0.5rem;
-        font-size: 0.7rem;
+        padding: 0.4rem;
+        font-size: 0.65rem;
       }
       .feature-slot .mock-table th,
       .feature-slot .mock-table td {
-        padding: 0.35rem 0.5rem;
-        font-size: 0.7rem;
+        padding: 0.25rem 0.4rem;
+        font-size: 0.65rem;
       }
       .feature-slot .mock-card,
       .feature-slot .mock-code,
@@ -512,26 +531,23 @@
       .feature-slot .obs-panel,
       .feature-slot .obs-kpi-list,
       .feature-slot .obs-logs {
-        padding: 0.5rem 0.6rem;
-        font-size: 0.65rem;
+        padding: 0.4rem 0.5rem;
+        font-size: 0.6rem;
       }
       .feature-slot .obs-layout {
         grid-template-columns: 1fr;
       }
       .feature-slot .obs-panel .obs-value {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
       }
       .feature-slot .obs-panel .obs-spark {
-        height: 28px;
+        height: 24px;
       }
       .feature-slot .window-bar {
-        padding: 0.4rem 0.6rem;
+        padding: 0.35rem 0.5rem;
       }
       .feature-slot .window-title {
-        font-size: 0.65rem;
-      }
-      .feature-content {
-        padding: 0.75rem 0;
+        font-size: 0.6rem;
       }
       .feature-title {
         font-size: clamp(1.35rem, 4vw, 1.75rem);

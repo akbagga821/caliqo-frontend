@@ -216,6 +216,8 @@ init();
   // Touch: “scroll to reveal” on hero, and “scroll back to landing” when at top of about
   const touchStep = 0.015;
   const touchThreshold = 8;
+  const aboutTouchThreshold = 4;
+  const backStep = 0.12;
   let aboutTouchStartY = 0;
   hero.addEventListener('touchstart', (e) => {
     if (e.touches.length === 1) touchStartY = e.touches[0].clientY;
@@ -239,11 +241,25 @@ init();
     if (about.scrollTop > 0) return;
     const y = e.touches[0].clientY;
     const deltaY = aboutTouchStartY - y;
-    if (deltaY > -touchThreshold) return;
+    if (deltaY > -aboutTouchThreshold) return;
     aboutTouchStartY = y;
-    applyDelta(deltaY);
+    progress -= backStep;
+    progress = Math.max(0, Math.min(1, progress));
+    setFade();
+    updateHeaderSolid();
     e.preventDefault();
   }, { passive: false });
+
+  const backBtn = document.getElementById('back-to-landing-btn');
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      progress = 0;
+      holdBufferDown = 0;
+      holdBufferUp = 0;
+      setFade();
+      updateHeaderSolid();
+    });
+  }
 
   const header = document.querySelector('.header');
   function updateHeaderSolid() {

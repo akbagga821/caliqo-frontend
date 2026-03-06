@@ -483,31 +483,51 @@
         order: 2;
         padding: 0.75rem 0;
       }
-      /* Same-size screenshot frames, fit to phone */
+      /* Same-size screenshot frames, fit to phone – strict so observability can’t grow */
       .feature .screenshot-frame {
         margin-bottom: 0 !important;
+        height: 50vh !important;
+        max-height: 260px !important;
+        min-height: 200px !important;
       }
       .feature-slot .screenshot-frame {
-        width: 100%;
-        max-width: 100%;
-        height: 50vh;
-        max-height: 260px;
-        min-height: 200px;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 50vh !important;
+        max-height: 260px !important;
+        min-height: 200px !important;
         position: relative;
         border-radius: 8px;
-        overflow: hidden;
-        display: flex;
+        overflow: hidden !important;
+        display: flex !important;
         flex-direction: column;
+        flex-shrink: 0;
       }
       .feature-slot .screenshot-frame .window-bar {
         flex-shrink: 0;
       }
       .feature-slot .screenshot-frame .screenshot-body {
-        flex: 1;
+        flex: 1 !important;
         padding: 0.5rem;
-        min-height: 0;
-        overflow: auto;
+        min-height: 0 !important;
+        overflow: auto !important;
         -webkit-overflow-scrolling: touch;
+      }
+      /* Observability (5th feature): force same frame size, compact inner content */
+      .feature:nth-of-type(5) .screenshot-frame {
+        height: 50vh !important;
+        max-height: 260px !important;
+        min-height: 200px !important;
+        flex-shrink: 0 !important;
+      }
+      .feature-slot .obs-logs pre {
+        max-height: 60px !important;
+      }
+      .feature-slot .obs-charts {
+        gap: 0.4rem;
+      }
+      .feature-slot .obs-panel .obs-spark {
+        height: 20px !important;
       }
       .feature-slot .mock-grid {
         grid-template-columns: 1fr;
@@ -554,6 +574,45 @@
       .feature-desc {
         font-size: 0.9rem;
       }
+      /* Back to landing: visible only on mobile when in about section */
+      .back-to-landing {
+        display: flex !important;
+      }
+    }
+    @media (min-width: 721px) {
+      .back-to-landing {
+        display: none !important;
+      }
+    }
+    .back-to-landing {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      background: rgba(10, 11, 13, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .back-to-landing .back-btn {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .back-to-landing .back-btn:hover {
+      color: var(--text-primary);
+      border-color: rgba(255,255,255,0.5);
     }
   </style>
 </head>
@@ -573,6 +632,9 @@
     </main>
   </section>
   <div class="scroll-content about" id="about">
+    <div class="back-to-landing" id="back-to-landing" aria-hidden="true">
+      <button type="button" class="back-btn" id="back-to-landing-btn" aria-label="Back to landing">↑ Back to landing</button>
+    </div>
     <div class="about-inner">
       <div class="about-left">
         <h2 class="about-title">Caliqo.</h2>

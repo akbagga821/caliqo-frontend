@@ -249,15 +249,6 @@
         grid-template-columns: 1fr;
         padding: 2.5rem 1.25rem;
       }
-      /* On mobile, show scroll content by default so touch scroll works (no wheel events) */
-      .scroll-content.about {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .hero {
-        opacity: 0;
-        pointer-events: none;
-      }
     }
 
     .about-left {
@@ -479,10 +470,74 @@
     @media (max-width: 720px) {
       .feature {
         grid-template-columns: 1fr;
-        padding: 2.5rem 1.25rem;
+        padding: 2rem 1rem 2.5rem;
       }
       .feature.feature-alt {
         direction: ltr;
+      }
+      /* No overlapping screenshots on small screens */
+      .feature .screenshot-frame {
+        margin-bottom: 0 !important;
+      }
+      .feature-slot .screenshot-frame {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+      .feature-slot .screenshot-body {
+        padding: 0.75rem;
+        min-height: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .feature-slot .mock-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+      }
+      .feature-slot .mock-sidebar {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 0.7rem;
+      }
+      .feature-slot .mock-table th,
+      .feature-slot .mock-table td {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.7rem;
+      }
+      .feature-slot .mock-card,
+      .feature-slot .mock-code,
+      .feature-slot .yaml-panel,
+      .feature-slot .yaml-body,
+      .feature-slot .queue-viz,
+      .feature-slot .obs-layout,
+      .feature-slot .obs-panel,
+      .feature-slot .obs-kpi-list,
+      .feature-slot .obs-logs {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.65rem;
+      }
+      .feature-slot .obs-layout {
+        grid-template-columns: 1fr;
+      }
+      .feature-slot .obs-panel .obs-value {
+        font-size: 0.75rem;
+      }
+      .feature-slot .obs-panel .obs-spark {
+        height: 28px;
+      }
+      .feature-slot .window-bar {
+        padding: 0.4rem 0.6rem;
+      }
+      .feature-slot .window-title {
+        font-size: 0.65rem;
+      }
+      .feature-content {
+        padding: 0.75rem 0;
+      }
+      .feature-title {
+        font-size: clamp(1.35rem, 4vw, 1.75rem);
+      }
+      .feature-desc {
+        font-size: 0.9rem;
       }
     }
   </style>

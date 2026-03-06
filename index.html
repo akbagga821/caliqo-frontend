@@ -517,7 +517,7 @@
         overflow: auto !important;
         -webkit-overflow-scrolling: touch;
       }
-      /* Observability (5th feature): same frame and body layout as other screenshots */
+      /* Observability (5th feature): same frame size, content narrower so it matches other screenshot width */
       .feature:nth-of-type(5) .screenshot-frame {
         height: 50vh !important;
         max-height: 260px !important;
@@ -529,6 +529,11 @@
         min-height: 0 !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch;
+      }
+      .feature:nth-of-type(5) .screenshot-body .mock-grid > div:last-child {
+        max-width: 92%;
+        margin-left: auto;
+        margin-right: auto;
       }
       .feature-slot .obs-logs pre {
         max-height: 72px !important;

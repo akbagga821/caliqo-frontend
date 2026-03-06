@@ -249,6 +249,15 @@
         grid-template-columns: 1fr;
         padding: 2.5rem 1.25rem;
       }
+      /* On mobile, show scroll content by default so touch scroll works (no wheel events) */
+      .scroll-content.about {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .hero {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
 
     .about-left {

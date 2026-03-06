@@ -132,12 +132,13 @@ function draw() {
 
 init();
 
-// Scroll-driven fade
+// Scroll-driven fade (wheel + touch for mobile)
 (function () {
   let progress = 0;
   let holdBufferDown = 0;
   let holdBufferUp = 0;
   let lastScrollTop = 0;
+  let touchStartY = 0;
   const hero = document.getElementById('hero');
   const about = document.getElementById('about');
   if (!hero || !about) return;
@@ -148,6 +149,34 @@ init();
     hero.classList.toggle('fade-out', progress >= 0.5);
     about.classList.toggle('fade-in', progress >= 0.5);
   };
+  function applyDelta(deltaY) {
+    const atTop = about.scrollTop <= 0;
+    if (atTop && deltaY < 0 && lastScrollTop > 10) holdBufferUp = holdTicksUp;
+    lastScrollTop = about.scrollTop;
+
+    if (progress < 0.5) {
+      progress += deltaY > 0 ? step : -step;
+      progress = Math.max(0, Math.min(1, progress));
+      if (progress >= 0.5) {
+        holdBufferDown = holdTicksDown;
+        holdBufferUp = holdTicksUp;
+      }
+      setFade();
+    } else if (progress >= 0.5 && atTop && deltaY < 0) {
+      if (holdBufferUp > 0) {
+        holdBufferUp--;
+      } else {
+        progress -= step;
+        progress = Math.max(0, Math.min(1, progress));
+        setFade();
+      }
+    } else if (progress >= 0.5 && atTop && deltaY > 0 && holdBufferDown > 0) {
+      holdBufferDown--;
+    } else if (progress >= 0.5 && deltaY > 0 && holdBufferDown > 0) {
+      holdBufferDown--;
+    }
+    updateHeaderSolid();
+  }
   window.addEventListener('wheel', (e) => {
     const atTop = about.scrollTop <= 0;
     const justArrivedAtTop = atTop && e.deltaY < 0 && lastScrollTop > 10;
@@ -182,6 +211,24 @@ init();
       holdBufferDown--;
     }
     updateHeaderSolid();
+  }, { passive: false });
+
+  // Touch: so the “scroll to reveal” works on mobile (no wheel events)
+  const touchStep = 0.015;
+  const touchThreshold = 8;
+  hero.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  hero.addEventListener('touchmove', (e) => {
+    if (e.touches.length !== 1) return;
+    const y = e.touches[0].clientY;
+    const deltaY = touchStartY - y;
+    if (Math.abs(deltaY) < touchThreshold) return;
+    touchStartY = y;
+    applyDelta(deltaY);
+    if (progress < 0.5 || (about.scrollTop <= 0 && progress >= 0.5)) {
+      e.preventDefault();
+    }
   }, { passive: false });
 
   const header = document.querySelector('.header');
